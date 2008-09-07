@@ -2,7 +2,7 @@
 # Contributor: Tom Newsom <Jeepster@gmx.co.uk>
 # Contributor: BlueRaven <blue@ravenconsulting.it>
 # Maintainer: dorphell <dorphell@archlinux.org>
-# Contributor: slubman <slubman.dndd@laposte.net>
+# Contributor: Nicolas Doualot <public@slubman.info>
 
 pkgname=pure-ftpd-slb
 _pkgbase=pure-ftpd
