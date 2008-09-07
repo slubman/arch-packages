@@ -1,5 +1,5 @@
 # Contributor: Krzysztof Malinowski <boromil@gmail.com>
-pkgname=screenie-slb-slb
+pkgname=screenie-slb-git
 pkgver=20080907
 pkgrel=1
 pkgdesc="Fancy screenshot composer"
