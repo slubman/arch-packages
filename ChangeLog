@@ -1,13 +1,18 @@
 2008-09-07 Nicolas Doualot <public@slubman.info>
+   Add details to Changelog
 
+
+2008-09-07 Nicolas Doualot <public@slubman.info>
    Merged changlog files.
 
 
 2008-09-07 Nicolas Doualot <public@slubman.info>
-
-   Add a package of my modified screenie version
-
+   Perso/screenie-slb-git : Add a package of my modified screenie version
 
 2008-09-07 Nicolas Doualot <public@slubman.info>
    Initial commit on git repo
+
+   Patchs/
+      mpd : build against pulseaudio
+      swfdec, swfdec-mozilla : use unstable branch
 
