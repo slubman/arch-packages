@@ -46,6 +46,9 @@ build() {
 
   make || return 1
 
-  mkdir -p $startdir/pkg/usr/bin
-  cp -a $startdir/src/$_gitname-build/screenie $startdir/pkg/usr/bin/
+  mkdir -p $pkgdir/usr/bin
+  #cp -a $srcdir/$_gitname-build/screenie $pkgdir/usr/bin/
+  install -D -m755 $srcdir/$_gitname-build/screenie $pkgdir/usr/bin/screenie
+  install -D -m644 $srcdir/$_gitname-build/screenie.png $pkgdir/usr/share/pixmaps/screenie.png
+  install -D -m644 $srcdir/$_gitname-build/screenie.desktop $pkgdir/usr/share/applications/screenie.desktop
 } 
