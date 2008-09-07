@@ -1,0 +1,41 @@
+# $Id: PKGBUILD 356 2008-04-18 22:56:27Z aaron $
+# Maintainer: Jeff 'codemac' Mickey <jeff@archlinux.org>
+# Maintainer: aurelien <aurelien@archlinux.org>
+# Contributor: Jochem Kossen <j.kossen@home.nl>
+pkgname=zsh
+pkgver=4.3.6
+pkgrel=1
+pkgdesc="A very advanced and programmable command interpreter (shell) for UNIX"
+arch=('i686' 'x86_64')
+url="http://www.zsh.org/"
+license=('custom')
+depends=('ncurses')
+install="zsh.install"
+source=(ftp://ftp.zsh.org/pub/$pkgname-$pkgver.tar.bz2 usr_zsh.sh)
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr --bindir=/bin \
+    --enable-etcdir=/etc/zsh \
+	--enable-zshenv=/etc/zsh/zshenv \
+    --enable-zlogin=/etc/zsh/zlogin \
+    --enable-zlogout=/etc/zsh/zlogout \
+    --enable-zprofile=/etc/profile \
+    --enable-zshrc=/etc/zsh/zshrc \
+    --enable-maildir-support \
+	--with-term-lib="ncursesw" \
+	--enable-multibyte \
+	--enable-function-subdirs \
+	--enable-zsh-mem \
+	--with-tcsetpgrp \
+    --enable-zsh-secure-free
+  make || return 1
+  make DESTDIR=$startdir/pkg install
+
+  install -D -m 755 $startdir/src/usr_zsh.sh $startdir/pkg/usr/bin/zsh
+  install -D -m644 LICENCE $startdir/pkg/usr/share/licenses/$pkgname/LICENSE
+}
+md5sums=('16f399af1081ad3c303a794c9c7dc47e'
+         '7b7afc638a9274cc16a3546ca2fff2ff')
+sha256sums=('5a253d107533ff60ab9edb74de9425f2ca93bc5a3ddb5c1b5bfd488a794dc873'
+            'ae40f8ea9ea9159999a2fdc7f8aa2a77c01a70b3ca71d1ca7ff9139517c3577f')
