@@ -1,0 +1,22 @@
+#$Id: PKGBUILD 356 2008-04-18 22:56:27Z aaron $
+#Maintainer: Jan de Groot <jgc@archlinux.org>
+
+pkgname=swfdec-mozilla
+pkgver=0.7.4
+pkgrel=1
+pkgdesc="free plugin for Mozilla browsers that uses the Swfdec library for playing SWF files"
+arch=('i686' 'x86_64')
+url="http://swfdec.freedesktop.org"
+license=('LGPL')
+depends=("swfdec>=$pkgver")
+source=(http://swfdec.freedesktop.org/download/swfdec-mozilla/0.7/${pkgname}-${pkgver}.tar.gz)
+options=('!libtool')
+
+build() {
+  cd ${startdir}/src/${pkgname}-${pkgver}
+  ./configure  --prefix=/usr --disable-static --with-plugin-dir=/usr/lib/mozilla/plugins/
+  make || return 1
+  make DESTDIR=${startdir}/pkg install
+}
+md5sums=('c5958f3b003190b21977495021ac2b28')
+sha256sums=('0d7927f2e791321b2867c120eb4140d9017c59b77925eb909b2a03f3ef2a8fe4')
