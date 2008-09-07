@@ -1,10 +1,10 @@
-# $Id: PKGBUILD 7320 2008-07-30 01:55:00Z eric $
+# $Id: PKGBUILD 10374 2008-08-28 12:26:47Z pierre $
 # Maintainer: Eric Belanger <eric@archlinux.org>
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
 
 pkgname=xine-lib
 pkgver=1.1.15
-pkgrel=1
+pkgrel=2
 pkgdesc="A free video player for Unix"
 arch=('i686' 'x86_64')
 url="http://xinehq.de/"
@@ -15,14 +15,18 @@ makedepends=('pkgconfig' 'libtool' 'automake' 'autoconf' 'imagemagick'
              'smbclient' 'mesa' 'alsa-lib' 'vcdimager' 'pulseaudio')
 options=('!libtool')
 source=(http://downloads.sourceforge.net/sourceforge/xine/${pkgname}-${pkgver}.tar.bz2
-        xine-lib-1.1.1-configure-no-mcpu-march.patch)
-md5sums=('42a2b4893b7f892eb334de2fc36d49c8' '9776df4eb54d2f1f68d8268adbc3b5c2')
-sha1sums=('bcb567ea2a11c5f26b2384d5400b8466ea9048c6'
-          '121a8358d7919b2e51067412373f52848290338a')
+        xine-lib-1.1.1-configure-no-mcpu-march.patch xine-header.patch)
+md5sums=('42a2b4893b7f892eb334de2fc36d49c8'
+         '9776df4eb54d2f1f68d8268adbc3b5c2'
+         'b139ee72700f8d118f9051e9140473f5')
+sha256sums=('07ddf2a9f521417dd2f097534a52ddd9d2883679932f965ae7e7b0125d3c9dcc'
+            '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757'
+            '90179606d4d498390ae81eec78cf12b2d03d444fcb5e4c2a3bb543f572ab7929')
 
 build() {
   cd ${srcdir}/${pkgname}-${pkgver}
   patch -Np0 -i ../xine-lib-1.1.1-configure-no-mcpu-march.patch || return 1
+  patch -p0 -i ../xine-header.patch || return 1
   libtoolize --force --copy || return 1
   aclocal -I m4 || return 1
   autoconf || return 1
@@ -36,3 +40,4 @@ build() {
   make || return 1
   make DESTDIR=${pkgdir} install || return 1
 }
+
