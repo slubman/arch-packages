@@ -1,0 +1,15 @@
+# Packages
+*.pkg.tar.gz
+
+# PKGBUILD compressed files
+*.tar.gz
+
+# backup files
+*~
+*#
+*.swp
+
+# src and pkg dirs
+*/src/
+*/build/
+
