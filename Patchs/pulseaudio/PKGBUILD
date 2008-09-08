@@ -1,0 +1,47 @@
+# $Id: PKGBUILD,v 1.19 2008/04/04 01:05:44 bardo Exp $
+# vim:set ts=2 sw=2 et:
+# Maintainer: Corrado Primier <bardo@aur.archlinux.org>
+# Contributor: William Rea <sillywilly@gmail.com>
+
+pkgname=pulseaudio
+pkgver=0.9.11
+pkgrel=2
+pkgdesc="A networked sound server"
+arch=('i686' 'x86_64')
+url="http://pulseaudio.org/"
+license=('GPL' 'LGPL')
+depends=('hal' 'libasyncns' 'libcap' 'liboil' 'libsamplerate' 'libtool')
+makedepends=('autoconf' 'avahi' 'bluez-libs' 'gconf' 'jack-audio-connection-kit'
+             'libatomic_ops' 'lirc-utils' 'pkgconfig' 'tcp_wrappers')
+provides=('polypaudio')
+conflicts=('polypaudio')
+replaces=('polypaudio')
+options=('emptydirs' '!libtool' '!makeflags')
+backup=('etc/pulse/client.conf' 'etc/pulse/daemon.conf' 'etc/pulse/default.pa')
+install=pulseaudio.install
+source=(http://0pointer.de/lennart/projects/pulseaudio/${pkgname}-${pkgver}.tar.gz
+        pulseaudio.conf pulseaudio.rc)
+
+build() {
+  cd ${startdir}/src/${pkgname}-${pkgver}
+  
+  # Necessary to compile as of 0.9.10
+  autoreconf -fi || return 1
+
+  #./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-lynx --disable-ltdl-install
+  ./configure --prefix=/usr --sysconfdir=/etc/pulse --localstatedir=/var --disable-lynx --enable-alsa --disable-ltdl-install
+
+  make || return 1
+  make DESTDIR=${startdir}/pkg install
+
+  install -Dm755 ${startdir}/src/pulseaudio.rc ${startdir}/pkg/etc/rc.d/pulseaudio || return 1
+  install -Dm644 ${startdir}/src/pulseaudio.conf ${startdir}/pkg/etc/conf.d/pulseaudio || return 1
+  install -d ${startdir}/pkg/var/run/pulse || return 1
+}
+
+md5sums=('fa121f8e5dd4b98d65096de1b6c84021'
+         'd4a7d4ad51b406588ba7ac7931c5dd88'
+         '0ca49a8494711beaab7256d7720131b1')
+sha256sums=('6cc4aff778275f087cfbd65d2040b1587cafc588749499a452eb496329505ab0'
+            '40757a3b83ccce0122ff0520e8c4ba201da46eb87180ba27e6f78c81087b4f5a'
+            'ed08fea51048f89fec6cfd4c1360626a685d52910c5c4180203507c95d0d2782')

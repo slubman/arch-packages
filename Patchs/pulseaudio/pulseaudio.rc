@@ -1,0 +1,44 @@
+#!/bin/bash
+[ -f /etc/conf.d/pulseudio ] && . /etc/conf.d/pulseaudio
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+PID=`pidof -o %PPID /usr/bin/pulseaudio`
+case "$1" in
+  start)
+    #Check for running hal daemon, start when not running
+    ck_daemon hal && /etc/rc.d/hal start
+    stat_busy "Starting PulseAudio"
+    
+    modprobe -l | grep '/capability\.ko' >/dev/null
+    if [ $? = 0 ] && [ ! $( lsmod | cut -d ' ' -f1 | grep '^capability$' >/dev/null ) ] ; then
+      modprobe capability
+    fi
+
+    [ -z "$PID" ] && /usr/bin/pulseaudio ${PA_OPTS} --fail=1 --daemonize=1 --system
+    if [ $? -gt 0 ]; then
+      stat_fail
+    else
+      add_daemon pulseaudio
+      stat_done
+    fi
+    ;;
+  stop)
+    stat_busy "Stopping PulseAudio"
+    [ ! -z "$PID" ]  && kill $PID &> /dev/null
+    if [ $? -gt 0 ]; then
+      stat_fail
+    else
+      rm_daemon pulseaudio
+      stat_done
+    fi
+    ;;
+  restart)
+    $0 stop
+    sleep 2
+    $0 start
+    ;;
+  *)
+    echo "usage: $0 {start|stop|restart}"
+esac
+exit 0

@@ -1,0 +1,45 @@
+post_install() {
+  echo -n "Adding pulse system groups... "
+  groupadd -g 130 pulse
+  groupadd -g 131 pulse-access
+  groupadd realtime && echo "done."
+  echo -n "Adding pulse system user... "
+  useradd -c "PulseAudio" -u 130 -d /var/run/pulse -g pulse -G audio -s /bin/false pulse \
+    && echo "done."
+  passwd -l pulse &>/dev/null
+
+  cat << MES
+
+>>> To use the ESounD wrapper while using a system-wide daemon, you also need
+    to enable auth-anonymous for the esound-unix module, or to copy
+    /var/run/pulse/.esd_auth into each home directory.
+>>> To use the system-wide daemon, add your user to the pulse-access group and
+    run /etc/rc.d/pulseaudio start or add pulseaudio to your DAEMONS array in
+    your /etc/rc.conf. Also remember to comment out every module related to x11
+    or gconf in /etc/pulse/default.pa if you want to use this mode.
+>>> Optional dependencies:
+     - alsa-lib
+     - avahi
+     - glib
+     - jack-audio-connection-kit
+     - lirc-utils
+     - tcp_wrappers
+
+MES
+}
+
+post_remove() {
+  echo -n -e "\nRemoving pulseaudio system user... "
+  userdel pulse && echo "done."
+  echo -n -e "\nRemoving pulseaudio system groups... "
+  groupdel pulse
+  groupdel pulse-access
+  groupdel realtime
+  echo "done."
+}
+
+op=$1
+shift
+[ "$(type -t "$op")" = "function" ] && $op "$@"
+
+# vim:set ts=2 sw=2 et:

@@ -1,3 +1,7 @@
+2008-09-08 Nicolas Doualot <public@slubman.info>
+   * Patchs/pulseaudio : Upgraded to latest pulseaudio
+   * Added a .gitignore file
+
 2008-09-07 Nicolas Doualot <public@slubman.info>
    Perso/screenie-slb-git : Add a .desktop file, and the according icon file
 

@@ -1,0 +1,11 @@
+--- a/src/modules/module-tunnel.c
++++ b/src/modules/module-tunnel.c
+@@ -1145,7 +1145,7 @@ static void on_connection(pa_socket_client *sc, pa_iochannel *io, void *userdata
+     t = pa_tagstruct_new(NULL, 0);
+     pa_tagstruct_putu32(t, PA_COMMAND_AUTH);
+     pa_tagstruct_putu32(t, tag = u->ctag++);
+-    pa_tagstruct_putu32(t, PA_PROTOCOL_VERSION);
++    pa_tagstruct_putu32(t, 11);
+     pa_tagstruct_put_arbitrary(t, u->auth_cookie, sizeof(u->auth_cookie));
+ 
+ #ifdef HAVE_CREDS
