@@ -1,3 +1,7 @@
+2008-09-10 Nicolas Doualot <public@slubman.info>
+   * Patchs/kernel26 : Added customized kernel (HUGETLB, CORE2)
+   * Perso/screenie-slb-git : updated icon
+
 2008-09-08 Nicolas Doualot <public@slubman.info>
    * Patchs/pulseaudio : Upgraded to latest pulseaudio
    * Added a .gitignore file
