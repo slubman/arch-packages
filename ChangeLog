@@ -1,4 +1,8 @@
 2008-09-10 Nicolas Doualot <public@slubman.info>
+   * Patchs/kernel26 : 2.6.26.3 => 2.6.26.5 
+       renammed 2.6.26-ARCH => 2.6.26-slb
+
+2008-09-10 Nicolas Doualot <public@slubman.info>
    * Patchs/kernel26 : Added customized kernel (HUGETLB, CORE2)
    * Perso/screenie-slb-git : updated icon
 
