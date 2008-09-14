@@ -2,7 +2,7 @@
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
 pkgname=qemu
 pkgver=0.9.1
-pkgrel=11
+pkgrel=12
 _kvmver=75
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
@@ -14,7 +14,8 @@ install=qemu.install
 source=(http://bellard.org/${pkgname}/${pkgname}-${pkgver}.tar.gz \
         70-kqemu.rules \
         http://downloads.sourceforge.net/kvm/kvm-$_kvmver.tar.gz\
-	kvm-bios.diff)
+	kvm-bios.diff
+	kvm-usb.diff)
 
 build()
 {
@@ -39,6 +40,7 @@ build()
   # we add the kvm/qemu version
     cd ${startdir}/src/kvm-$_kvmver
     patch -Np1 -i ../kvm-bios.diff || return 1
+    patch -p1 -i ../kvm-usb.diff || return 1
     ./configure --prefix=/usr
   # fix sdl compilation, JON: and extboot
     sed -i -e 's#-rpath,/usr/lib#-rpath,/usr/lib,-rpath,/lib#g' qemu/config-host.mak
@@ -70,3 +72,13 @@ sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
             'fff3add1e16b3ece8edfb29b10cbdcefed95d8a18ceac77b008a241a2427d0bf'
             '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64')
+md5sums=('6591df8e9270eb358c881de4ebea1262'
+         'ec06591830b8fcf53913f05f3d66f7e5'
+         '5a00ac6ee704fbf537a751522bd37d15'
+         '1cdfcbd3cc569eec96a36d7557291fd2'
+         '3cf48f5220a96ee8b4376fa7005190e7')
+sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
+            'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
+            'fff3add1e16b3ece8edfb29b10cbdcefed95d8a18ceac77b008a241a2427d0bf'
+            '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64'
+            '176e594700d055b52747b152ba0e6b7084cd292802170ea7143c20f02d2f2606')
