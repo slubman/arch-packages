@@ -1,3 +1,7 @@
+2008-09-14 Nicolas Doualot <public@slubman.info>
+   * Patchs/qemu : Add a patch to anable USB support in kvm with newer
+                   kernels.
+
 2008-09-11 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : Added qemu
 
