@@ -4,8 +4,8 @@
 # Contributor: William Rea <sillywilly@gmail.com>
 
 pkgname=pulseaudio
-pkgver=0.9.11
-pkgrel=2
+pkgver=0.9.12
+pkgrel=1
 pkgdesc="A networked sound server"
 arch=('i686' 'x86_64')
 url="http://pulseaudio.org/"
@@ -39,9 +39,9 @@ build() {
   install -d ${startdir}/pkg/var/run/pulse || return 1
 }
 
-md5sums=('fa121f8e5dd4b98d65096de1b6c84021'
+md5sums=('b8851d52152c5c3b65f4f31ee1ab7631'
          'd4a7d4ad51b406588ba7ac7931c5dd88'
          '0ca49a8494711beaab7256d7720131b1')
-sha256sums=('6cc4aff778275f087cfbd65d2040b1587cafc588749499a452eb496329505ab0'
+sha256sums=('1f3740b96c062a9718cb5f5e2c37cf3b6e4d895fdf66a64b7bc686b249d6eafc'
             '40757a3b83ccce0122ff0520e8c4ba201da46eb87180ba27e6f78c81087b4f5a'
             'ed08fea51048f89fec6cfd4c1360626a685d52910c5c4180203507c95d0d2782')

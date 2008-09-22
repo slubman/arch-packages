@@ -1,3 +1,6 @@
+2008-09-22 Nicolas Doualot <public@slubman.info>
+   * Patchs/pulseaudio : updated to O.9.12
+
 2008-09-14 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : Add a patch to anable USB support in kvm with newer
                    kernels.
