@@ -5,7 +5,7 @@
 
 pkgname=pulseaudio
 pkgver=0.9.12
-pkgrel=1
+pkgrel=5
 pkgdesc="A networked sound server"
 arch=('i686' 'x86_64')
 url="http://pulseaudio.org/"
@@ -17,7 +17,7 @@ provides=('polypaudio')
 conflicts=('polypaudio')
 replaces=('polypaudio')
 options=('emptydirs' '!libtool' '!makeflags')
-backup=('etc/pulse/client.conf' 'etc/pulse/daemon.conf' 'etc/pulse/default.pa')
+backup=('etc/pulse/client.conf' 'etc/pulse/daemon.conf' 'etc/pulse/default.pa' 'etc/pulse/system.pa' 'etc/conf.d/pulseaudio')
 install=pulseaudio.install
 source=(http://0pointer.de/lennart/projects/pulseaudio/${pkgname}-${pkgver}.tar.gz
         pulseaudio.conf pulseaudio.rc)
@@ -28,8 +28,7 @@ build() {
   # Necessary to compile as of 0.9.10
   autoreconf -fi || return 1
 
-  #./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-lynx --disable-ltdl-install
-  ./configure --prefix=/usr --sysconfdir=/etc/pulse --localstatedir=/var --disable-lynx --enable-alsa --disable-ltdl-install
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-lynx --disable-ltdl-install
 
   make || return 1
   make DESTDIR=${startdir}/pkg install
@@ -41,7 +40,7 @@ build() {
 
 md5sums=('b8851d52152c5c3b65f4f31ee1ab7631'
          'd4a7d4ad51b406588ba7ac7931c5dd88'
-         '0ca49a8494711beaab7256d7720131b1')
+         '87f6360dc6b3e367930dc8f66b0dc5b1')
 sha256sums=('1f3740b96c062a9718cb5f5e2c37cf3b6e4d895fdf66a64b7bc686b249d6eafc'
             '40757a3b83ccce0122ff0520e8c4ba201da46eb87180ba27e6f78c81087b4f5a'
-            'ed08fea51048f89fec6cfd4c1360626a685d52910c5c4180203507c95d0d2782')
+            'bdc72aaa744a33f7da5b5db0295e788bf85f3fa1a4ed5d1819850866d640118c')

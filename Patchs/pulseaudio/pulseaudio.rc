@@ -1,5 +1,5 @@
 #!/bin/bash
-[ -f /etc/conf.d/pulseudio ] && . /etc/conf.d/pulseaudio
+[ -f /etc/conf.d/pulseaudio ] && . /etc/conf.d/pulseaudio
 . /etc/rc.conf
 . /etc/rc.d/functions
 
