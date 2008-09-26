@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=xVideoServiceThief
+Comment=Tool for downloading your favourite video clips
+Icon=xvst
+Exec=/usr/bin/xvst
+Type=Application
+Terminal=false
+Categories=AudioVideo;Recorder;
+StartupNotify=true

@@ -1,3 +1,7 @@
+2008-09-26 Nicolas Doualot <public@slubman.info>
+   * Perso/xvideoservicethief : A tool to download and convert videos from
+                                some websites.
+
 2008-09-22 Nicolas Doualot <public@slubman.info>
    * Patchs/pulseaudio : Some fixes, now should work fine
 

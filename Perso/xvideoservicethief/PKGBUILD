@@ -1,0 +1,34 @@
+# Contributor: slubman <public@slubman.info>
+
+pkgname=xvideoservicethief
+pkgver=1.8.2a
+pkgrel=1
+pkgdesc="tool for downloading your favourite video clips from a lot of video websites."
+arch=(i686 x86_64)
+makedepends=('')
+depends=('qt' 'openssl') 
+source=(http://downloads.sourceforge.net/xviservicethief/xVideoServiceThief_1_8_2_alpha_src.zip
+        xvst.desktop
+        gcc-4.3.diff)
+license=('GPL')
+url="http://xviservicethief.sourceforge.net/"
+
+build() {
+   cd ${srcdir}
+
+   patch -p1 -i gcc-4.3.diff
+   qmake -set build_mode dynamic_build
+   qmake
+   make
+
+   install -m755 -D ${srcdir}/bin/xvst ${pkgdir}/usr/bin/xvst
+   install -m644 -D ${srcdir}/resources/images/InformationLogo.png ${pkgdir}/usr/share/pixmaps/xvst.png
+   install -m644 -D ${srcdir}/xvst.desktop ${pkgdir}/usr/share/applications/xvst.desktop
+}
+
+md5sums=('275b714e71049dffd0835395a85b6c27'
+         'cc44f85d59f3f10ba41c13b7203d19bc'
+         'dfe3ecaf589c8629a30bdbe0047d332d')
+sha256sums=('7c0459c7460caca2ad5a8009a78c404bc57ddbfada13abc58d14d52af1eaef54'
+            '1b8d5c6806d3da8b8409777cf3df59a3490e49fe74655b894f0d9fa0778f46e3'
+            '4fbd68ae2323b017e80ae33c86b60cad3e27a37de58521e368c26c0dfc51ab4e')
