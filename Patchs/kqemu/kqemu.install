@@ -1,4 +1,4 @@
-KERNEL_VERSION='2.6.26-slb'
+KERNEL_VERSION='2.6.27-slb'
 
 post_install() {
   depmod -v $KERNEL_VERSION >/dev/null 2>&1
