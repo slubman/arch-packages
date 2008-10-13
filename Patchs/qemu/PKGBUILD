@@ -2,8 +2,8 @@
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
 pkgname=qemu
 pkgver=0.9.1
-pkgrel=14
-_kvmver=75
+pkgrel=15
+_kvmver=77
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL')
@@ -66,19 +66,21 @@ build()
 
 md5sums=('6591df8e9270eb358c881de4ebea1262'
          'ec06591830b8fcf53913f05f3d66f7e5'
-         '5a00ac6ee704fbf537a751522bd37d15'
-         '1cdfcbd3cc569eec96a36d7557291fd2')
+         '3ef0858ce2ea6b52c73edb766e464279'
+         '1cdfcbd3cc569eec96a36d7557291fd2'
+         '5718011dd3d307dede4be4e72499c727')
 sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            'fff3add1e16b3ece8edfb29b10cbdcefed95d8a18ceac77b008a241a2427d0bf'
-            '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64')
+            '9b6c1d61d27e5e67daea751b908927fc7290e0f15b3f4bbe391e154404d8abca'
+            '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64'
+            '1959f363ddb00396b92f96cb8a7055eeedd29faff8d4bd9a89b2065929c77ae1')
 md5sums=('6591df8e9270eb358c881de4ebea1262'
          'ec06591830b8fcf53913f05f3d66f7e5'
-         '5a00ac6ee704fbf537a751522bd37d15'
+         '3ef0858ce2ea6b52c73edb766e464279'
          '1cdfcbd3cc569eec96a36d7557291fd2'
-         '3cf48f5220a96ee8b4376fa7005190e7')
+         'bf27ebf9f63d362d52587f28d75c2f18')
 sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            'fff3add1e16b3ece8edfb29b10cbdcefed95d8a18ceac77b008a241a2427d0bf'
+            '9b6c1d61d27e5e67daea751b908927fc7290e0f15b3f4bbe391e154404d8abca'
             '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64'
-            '176e594700d055b52747b152ba0e6b7084cd292802170ea7143c20f02d2f2606')
+            '74bb87af167e98c8af149f18fa3805d922d0fbedcb7fb9a01ee652cd0b5fc213')

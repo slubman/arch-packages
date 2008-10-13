@@ -5,7 +5,7 @@
 pkgname=kqemu
 _kernver=2.6.27-slb
 pkgver=1.3.0pre11
-pkgrel=23
+pkgrel=24
 pkgdesc="QEMU Accelerator Module, which adds virtualization capabilities to qemu. For kernel26."
 arch=(i686 x86_64)
 license=('GPL' 'BSD')

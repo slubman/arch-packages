@@ -1,5 +1,10 @@
+2008-10-13 Nicolas Doualot <public@slubman.info>
+   * Patchs/kernel26 : 2.6.27 sync with testing
+   * Patchs/qemu : updated to kvm-77
+   * Patchs/kqemu : recompiled against new kernel
+
 2008-10-10 Nicolas Doualot <public@slubman.info>
-   * Patchs/kernel26 : 2.6.26.5 => 2.6.6.27
+   * Patchs/kernel26 : 2.6.26.5 => 2.6.27
    * Patchs/kqemu : Recompiled against new kernel
 
 2008-09-26 Nicolas Doualot <public@slubman.info>
