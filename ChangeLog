@@ -1,3 +1,6 @@
+2008-10-14 Nicolas Doualot <public@slubman.info>
+   * Perso/screenie-slb-git : update to match git changes
+
 2008-10-13 Nicolas Doualot <public@slubman.info>
    * Patchs/kernel26 : 2.6.27 sync with testing
    * Patchs/qemu : updated to kvm-77

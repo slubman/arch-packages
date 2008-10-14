@@ -1,6 +1,6 @@
 # Contributor: Krzysztof Malinowski <boromil@gmail.com>
 pkgname=screenie-slb-git
-pkgver=20080909
+pkgver=20081014
 pkgrel=1
 pkgdesc="Fancy screenshot composer"
 arch=('i686' 'x86_64')
@@ -40,6 +40,9 @@ build() {
 
   qmake
 
+  # Update translations
+  lrelease screenie.pro
+
   sed -ri "s/(^CFLAGS[[:space:]]*=) .*$/\1 $CFLAGS -Wall -W -D_REENTRANT \$\(DEFINES\)/" Makefile
   sed -ri "s/(^CXXFLAGS[[:space:]]*=) .*$/\1 $CXXFLAGS -Wall -W -D_REENTRANT \$\(DEFINES\)/" Makefile
 
@@ -49,6 +52,8 @@ build() {
   mkdir -p $pkgdir/usr/bin
   #cp -a $srcdir/$_gitname-build/screenie $pkgdir/usr/bin/
   install -D -m755 $srcdir/$_gitname-build/screenie $pkgdir/usr/bin/screenie
-  install -D -m644 $srcdir/$_gitname-build/screenie.png $pkgdir/usr/share/pixmaps/screenie.png
+  install -D -m644 $srcdir/$_gitname-build/resources/screenie.png $pkgdir/usr/share/pixmaps/screenie.png
   install -D -m644 $srcdir/$_gitname-build/screenie.desktop $pkgdir/usr/share/applications/screenie.desktop
+  install -d -m644 $srcdir/$_gitname-build/l10n $pkgdir/usr/share/screenie
+  install -m644 $srcdir/$_gitname-build/l10n/*.qm $pkgdir/usr/share/screenie
 } 
