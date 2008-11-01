@@ -1,0 +1,26 @@
+# $Id: PKGBUILD 356 2008-04-18 22:56:27Z aaron $
+# Maintainer: tobias <tobias@archlinux.org>
+
+pkgname=libmpd
+pkgver=0.16.1
+pkgrel=1
+pkgdesc="Signal based wrapper around libmpdclient"
+arch=(i686 x86_64)
+license=('GPL')
+url="http://sarine.nl/libmpd"
+depends=('glibc')
+options=('!libtool')
+source=(http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz)
+
+build() {
+  cd ${startdir}/src
+  mv index.php* ./${pkgname}-${pkgver}.tar.gz
+  tar xzf ${pkgname}-${pkgver}.tar.gz 
+  cd $startdir/src/$pkgname-$pkgver
+  ./configure --prefix=/usr
+  make || return 1
+  make DESTDIR=$startdir/pkg install
+}
+
+md5sums=('ec74a74bbe9df3243c45143306cff853')
+sha256sums=('86c1c7bd8637bc83acaf33b410371b847e029ed53f72c319aedf87f3d0e575b2')

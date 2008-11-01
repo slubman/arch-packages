@@ -1,0 +1,32 @@
+# $Id: PKGBUILD 356 2008-04-18 22:56:27Z aaron $
+# Maintainer:  tobias <tobias@archlinux.org>
+# Contributor: Tobias Kieslich <tobias@justdreams.de>
+
+pkgname=gmpc
+pkgver=0.16.1
+pkgrel=1
+pkgdesc="a GNOME based GUI client tool for MPD"
+arch=(i686 x86_64)
+url="http://sarine.nl/gmpc"
+license=("GPL")
+depends=('libglade' 'gob2' 'libmpd>=0.16.0' 'curl>=7.16.2' 'libsm')
+options=(!libtool)
+source=(http://sarine.nl/index.php\?mact=Uploads,cntnt01,getfile,0\&cntnt01showtemplate=false\&cntnt01upload_id=38\&cntnt01returnid=71)
+source=(http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz)
+
+build() {
+  cd ${startdir}/src
+  mv index.php* ./${pkgname}-${pkgver}.tar.gz
+  tar xzf ${pkgname}-${pkgver}.tar.gz 
+
+  cd ${startdir}/src/${pkgname}-${pkgver}
+  ./configure --prefix=/usr
+  make || return 1
+  sed -i 's|GNOME;Application;AudioVideo;|GTK;Application;AudioVideo;Player;|' \
+    data/${pkgname}.desktop
+  make DESTDIR=${startdir}/pkg install
+}
+md5sums=('5dc126a03da41cb92643b48dbd0aba82')
+sha256sums=('0f3030d0b466ff463d9daaa83e8a3190c3da872a7eb63c91876dba667b6c9f4f')
+md5sums=('5dc126a03da41cb92643b48dbd0aba82')
+sha256sums=('0f3030d0b466ff463d9daaa83e8a3190c3da872a7eb63c91876dba667b6c9f4f')

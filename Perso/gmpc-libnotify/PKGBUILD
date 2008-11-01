@@ -1,0 +1,25 @@
+# Modified from original gmpc pkgbuild created by tobias <tobias@archlinux.org>
+# Contributor: Arto Puranen <purcher@gmail.com>
+# Contributor: slubman <public@slubman.info>
+
+pkgname=gmpc-libnotify
+pkgver=0.16.0
+pkgrel=1
+pkgdesc="A plugin for gmpc that displays notifications using libnotify"
+arch=(i686 x86_64)
+url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+license="GPL"
+depends=('libmpd>=0.16.0' 'libnotify')
+source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
+
+conflicts=gmpc-libnotify-svn
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  ./configure --prefix=/usr
+  make || return 1
+  make DESTDIR="${pkgdir}" install
+}
+
+md5sums=('1764594db88a18c05a3ea11d3e8fa309')
+sha256sums=('a7d70ef3c001a6be099b25e5a0dc2be4c02070bc4a07fd42e789da71420cea5b')

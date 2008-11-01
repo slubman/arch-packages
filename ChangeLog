@@ -1,3 +1,8 @@
+2008-11-01 Nicolas Doualot <public@slubman.info>
+   * Patchs/libmpd : updated to version 0.16.1
+   * Patchs/gmpc : updated to version 0.16.1
+   * Perso/gmpc-* : plugins for gmpc 0.16.1
+
 2008-10-14 Nicolas Doualot <public@slubman.info>
    * Perso/screenie-slb-git : update to match git changes
 

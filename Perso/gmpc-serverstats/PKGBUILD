@@ -1,0 +1,25 @@
+# Modified from original gmpc pkgbuild created by tobias <tobias@archlinux.org>
+# Contributor: Lukas Miczka <lukascpu@gmail.com>
+# Contributor: slubman <slubman.dndd@laposte.net>
+
+pkgname=gmpc-serverstats
+pkgver=0.16.0
+pkgrel=1
+pkgdesc="This plugin shows more detailed information about mpd's database."
+arch=(i686 x86_64)
+url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+license="GPL"
+depends=('libmpd>=0.16.0' 'libxml2' 'gtk2')
+source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  ./configure --prefix=/usr
+  make || return 1
+  make DESTDIR="${pkgdir}" install
+}
+
+md5sums=('c25fdec6601050eb0659bff04659a5d1')
+sha256sums=('1d50b77baa04777c5ac99e0af2acd437b00e2f51e59d9f55c157c1c59e7b4576')
+md5sums=('c25fdec6601050eb0659bff04659a5d1')
+sha256sums=('1d50b77baa04777c5ac99e0af2acd437b00e2f51e59d9f55c157c1c59e7b4576')

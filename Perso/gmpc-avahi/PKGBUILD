@@ -1,0 +1,25 @@
+# Modified from original gmpc pkgbuild created by tobias <tobias@archlinux.org>
+# Contributor: Arto Puranen <purcher@gmail.com>
+# Contributor: slubman <public@slubman.info>
+
+pkgname=gmpc-avahi
+pkgver=0.16.0
+pkgrel=1
+pkgdesc="A plugin for mpc for discover mpd daemon within avahi enabled networks"
+arch=(i686 x86_64)
+url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+license="GPL"
+depends=('libmpd>=0.16.0' 'libxml2' 'gtk2' 'avahi')
+source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
+
+conflicts=gmpc-avahi-svn
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  ./configure --prefix=/usr
+  make || return 1
+  make DESTDIR="${pkgdir}" install
+}
+
+md5sums=('0bbb5a7b0dbe7cde76df83a69daf8f67')
+sha256sums=('cbb90f86b221daf508ea8adfb636c9ac406a71c76a4ce386bb5873528aff000e')

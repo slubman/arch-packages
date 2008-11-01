@@ -1,0 +1,27 @@
+# Modified from original gmpc pkgbuild created by tobias <tobias@archlinux.org>
+# Contributor: Arto Puranen <purcher@gmail.com>
+# Contributor: slubman <slubman.dndd@laposte.net>
+
+pkgname=gmpc-last.fm
+pkgver=0.16.1
+pkgrel=1
+pkgdesc="The last.fm plugin can fetch artist images, from last.fm. This plugin doesn't scrobble your music, use a dedicated client like mpdscribble for this."
+arch=(i686 x86_64)
+url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+license="GPL"
+depends=('libmpd>=0.16.1' 'libxml2' 'gtk2')
+source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
+
+provide=(gmpc-lastfm)
+replace=(gmpc-lastfm)
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+
+  ./configure --prefix=/usr
+  make || return 1
+  make DESTDIR="${pkgdir}" install
+}
+
+md5sums=('f0d877ffcc49b0475254d4002bffd0da')
+sha256sums=('27c6e2263aff6df8459319658d1afda8c0b87ae19559d8f45bcc7370312dd00b')
