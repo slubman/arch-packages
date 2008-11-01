@@ -7,11 +7,10 @@ pkgver=0.16.1
 pkgrel=1
 pkgdesc="a GNOME based GUI client tool for MPD"
 arch=(i686 x86_64)
-url="http://sarine.nl/gmpc"
+url="http://gmpcwiki.sarine.nl/index.php?title=GMPC"
 license=("GPL")
 depends=('libglade' 'gob2' 'libmpd>=0.16.0' 'curl>=7.16.2' 'libsm')
 options=(!libtool)
-source=(http://sarine.nl/index.php\?mact=Uploads,cntnt01,getfile,0\&cntnt01showtemplate=false\&cntnt01upload_id=38\&cntnt01returnid=71)
 source=(http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz)
 
 build() {
