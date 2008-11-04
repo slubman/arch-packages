@@ -2,8 +2,8 @@
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
 pkgname=qemu
 pkgver=0.9.1
-pkgrel=15
-_kvmver=77
+pkgrel=16
+_kvmver=78
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL')
@@ -14,8 +14,7 @@ install=qemu.install
 source=(http://bellard.org/${pkgname}/${pkgname}-${pkgver}.tar.gz \
         70-kqemu.rules \
         http://downloads.sourceforge.net/kvm/kvm-$_kvmver.tar.gz\
-	kvm-bios.diff
-	kvm-usb.diff)
+	kvm-bios.diff)
 
 build()
 {
@@ -23,6 +22,7 @@ build()
   unset CFLAGS
 
   if [ "${CARCH}" = "x86_64" ]; then
+     sed -i -e 's/lib64/lib/g' x86_64.ld || return 1
      # any "xxx-user" target seems to not build on x86_64
          ./configure --prefix=/usr --enable-alsa \
                      --target-list="i386-softmmu ppc-softmmu sparc-softmmu x86_64-softmmu arm-softmmu mips-softmmu"
@@ -40,7 +40,6 @@ build()
   # we add the kvm/qemu version
     cd ${startdir}/src/kvm-$_kvmver
     patch -Np1 -i ../kvm-bios.diff || return 1
-    patch -p1 -i ../kvm-usb.diff || return 1
     ./configure --prefix=/usr
   # fix sdl compilation, JON: and extboot
     sed -i -e 's#-rpath,/usr/lib#-rpath,/usr/lib,-rpath,/lib#g' qemu/config-host.mak
@@ -66,21 +65,9 @@ build()
 
 md5sums=('6591df8e9270eb358c881de4ebea1262'
          'ec06591830b8fcf53913f05f3d66f7e5'
-         '3ef0858ce2ea6b52c73edb766e464279'
-         '1cdfcbd3cc569eec96a36d7557291fd2'
-         '5718011dd3d307dede4be4e72499c727')
+         '54b062575aeeaa424fa0d5aa46c284a9'
+         '1cdfcbd3cc569eec96a36d7557291fd2')
 sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            '9b6c1d61d27e5e67daea751b908927fc7290e0f15b3f4bbe391e154404d8abca'
-            '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64'
-            '1959f363ddb00396b92f96cb8a7055eeedd29faff8d4bd9a89b2065929c77ae1')
-md5sums=('6591df8e9270eb358c881de4ebea1262'
-         'ec06591830b8fcf53913f05f3d66f7e5'
-         '3ef0858ce2ea6b52c73edb766e464279'
-         '1cdfcbd3cc569eec96a36d7557291fd2'
-         'bf27ebf9f63d362d52587f28d75c2f18')
-sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
-            'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            '9b6c1d61d27e5e67daea751b908927fc7290e0f15b3f4bbe391e154404d8abca'
-            '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64'
-            '74bb87af167e98c8af149f18fa3805d922d0fbedcb7fb9a01ee652cd0b5fc213')
+            '1ade8847ea3f72b662eedb01f7447325915ca243c3ea86b22ecbb5fafbed6217'
+            '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64')
