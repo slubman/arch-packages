@@ -1,10 +1,10 @@
-# $Id: PKGBUILD 15059 2008-10-12 13:05:37Z thomas $
+# $Id: PKGBUILD 19042 2008-11-14 09:12:35Z tpowa $
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
 # Maintainer: Thomas Baechler <thomas@archlinux.org>
 pkgname=kernel26
 _basekernel=2.6.27
-pkgver=2.6.27
-pkgrel=2
+pkgver=2.6.27.6
+pkgrel=1
 _patchname="patch-${pkgver}-${pkgrel}-ARCH"
 pkgdesc="The Linux Kernel and modules"
 arch=(i686 x86_64)
@@ -143,12 +143,12 @@ build() {
   rm -rf $startdir/pkg/usr/src/linux-${_kernver}/arch/{alpha,arm,arm26,avr32,blackfin,cris,frv,h8300,ia64,m32r,m68k,m68knommu,mips,mn10300,parisc,powerpc,ppc,s390,sh,sh64,sparc,sparc64,um,v850,xtensa}
 }
 md5sums=('b3e78977aa79d3754cb7f8143d7ddabd'
-         'bbeba9d335907408876bb1e953f68e84'
-         '4fd1071a8dc2ea993aed81d5920de18d'
-         '41018e5b84cd1890617a04f5c2bac602'
+         'ef7188b740c4d8817e492c159cd359ed'
+         'd92ecbd40b441fd7e7ef40d269528579'
+         '71b06f7ca9fe7f532576a47a7da63145'
          '25584700a0a679542929c4bed31433b6')
 sha256sums=('0e99bf9e83f4d1ae0c656741a84dfddfa9c4d2469cf35475f5939d02dc3e4393'
-            '3fcd2eb3985daa921af77c410a067f12261322e13468b2761ad8fd5d53647066'
-            '78b7cd25fb571224ee86e2b33f25cac181cfd5bf0db1c12c6e471601f4fbe28e'
-            '70abf566ce3c86081644993f63d124b1c1695ae4e15eef5a823035331b44762f'
+            '10bf9892c1a2a8959f73da6eb7ac3d21ebe71b3890e5dff9b956eb368f99fd50'
+            '3061ddba8def77f07f0bf41c9168e16a7264c6948d6d9d2a4057c5c42c6b6182'
+            'c86ab4be85eb9cfb0daef4969857417fd063e553b145d85534b4c3bb2e41ddb2'
             '7ead13bbe2fdfc5308ddc3a0484d66f8150f78bbdbc59643e0b52bb9e776b5da')

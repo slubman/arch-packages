@@ -1,3 +1,6 @@
+2008-11-24 Nicolas Doualot <public@slubman.info>
+   * Patchs/kernel26: 2.6.27 sync with extra
+
 2008-11-13 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : upgraded to kvm-79
 
