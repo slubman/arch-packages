@@ -1,4 +1,9 @@
 2008-11-24 Nicolas Doualot <public@slubman.info>
+   * Patchs/xine-lib : match extra version
+   * Patchs/pulseaudio : upgraded to latest version
+   * Patchs/qemu : upgraded to kvm-82
+
+2008-11-24 Nicolas Doualot <public@slubman.info>
    * Patchs/kernel26: 2.6.27 sync with extra
 
 2008-11-13 Nicolas Doualot <public@slubman.info>

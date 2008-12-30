@@ -1,43 +1,46 @@
-# $Id: PKGBUILD 10374 2008-08-28 12:26:47Z pierre $
+# $Id: PKGBUILD 20666 2008-12-06 08:58:36Z allan $
 # Maintainer: Eric Belanger <eric@archlinux.org>
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
 
 pkgname=xine-lib
 pkgver=1.1.15
-pkgrel=2
+pkgrel=4
 pkgdesc="A free video player for Unix"
 arch=('i686' 'x86_64')
 url="http://xinehq.de/"
 license=('LGPL' 'GPL')
-depends=('libgl' 'libxvmc' 'esd' 'flac>=1.1.4' 'libvorbis' 'sdl' 'libmng' 'libtheora'
-         'libxcb' 'wavpack' 'ffmpeg>=20080715')
-makedepends=('pkgconfig' 'libtool' 'automake' 'autoconf' 'imagemagick' 
-             'smbclient' 'mesa' 'alsa-lib' 'vcdimager' 'pulseaudio')
+depends=('libgl' 'libxvmc' 'esound' 'flac>=1.1.4' 'libvorbis' 'sdl' 'libmng' 'libtheora'
+         'libxcb' 'wavpack' 'ffmpeg>=20080715' 'heimdal>=1.2.1')
+makedepends=('pkgconfig' 'libtool' 'imagemagick' 'smbclient' 'mesa' 'alsa-lib' 
+             'vcdimager' 'pulseaudio')
 options=('!libtool')
 source=(http://downloads.sourceforge.net/sourceforge/xine/${pkgname}-${pkgver}.tar.bz2
-        xine-lib-1.1.1-configure-no-mcpu-march.patch xine-header.patch)
-md5sums=('42a2b4893b7f892eb334de2fc36d49c8'
-         '9776df4eb54d2f1f68d8268adbc3b5c2'
-         'b139ee72700f8d118f9051e9140473f5')
-sha256sums=('07ddf2a9f521417dd2f097534a52ddd9d2883679932f965ae7e7b0125d3c9dcc'
-            '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757'
-            '90179606d4d498390ae81eec78cf12b2d03d444fcb5e4c2a3bb543f572ab7929')
+        xine-lib-1.1.1-configure-no-mcpu-march.patch xine-header.patch xine-imagemagick.patch)
+md5sums=('42a2b4893b7f892eb334de2fc36d49c8' '9776df4eb54d2f1f68d8268adbc3b5c2'\
+         'b139ee72700f8d118f9051e9140473f5' '45d248d45b747f049129925cbf25716d')
+sha1sums=('bcb567ea2a11c5f26b2384d5400b8466ea9048c6'
+          '121a8358d7919b2e51067412373f52848290338a'
+          '30cd75db3f0c0002f467d85466f1c404452397df'
+          'f0a0c04d5dfa3d0cd9246a1310f628deff489c12')
 
 build() {
   cd ${srcdir}/${pkgname}-${pkgver}
-  patch -Np0 -i ../xine-lib-1.1.1-configure-no-mcpu-march.patch || return 1
-  patch -p0 -i ../xine-header.patch || return 1
+
+  patch -p0 < ../xine-lib-1.1.1-configure-no-mcpu-march.patch || return 1
+  patch -p0 <../xine-header.patch || return 1
+  #patch -p1 <../xine-imagemagick.patch || return 1
+
   libtoolize --force --copy || return 1
   aclocal -I m4 || return 1
   autoconf || return 1
   automake --add-missing || return 1
 
   ./configure --prefix=/usr --with-w32-path=/usr/lib/codecs \
-    --with-xv-path=/usr/lib --with-libflac --with-wavpack \
+    --with-xv-path=/usr/lib --with-xxmc-path=/usr/lib --with-xvmc-path=/usr/lib \
+    --with-libflac --with-wavpack --with-xcb \
     --without-arts --without-jack --without-speex \
-    --disable-gnomevfs \
+    --disable-gnomevfs --with-pulseaudio --enable-aalib \
     --disable-modplug --with-external-ffmpeg || return 1
   make || return 1
   make DESTDIR=${pkgdir} install || return 1
 }
-
