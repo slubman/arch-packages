@@ -1,12 +1,12 @@
 # arg 1:  the new package version
 # arg 2:  the old package version
 
-KERNEL_VERSION=2.6.27-slb
+KERNEL_VERSION=2.6.28-slb
 
 post_install () {
   # updating module dependencies
   echo ">>> Updating module dependencies. Please wait ..."
-  depmod -v $KERNEL_VERSION > /dev/null 2>&1
+  depmod $KERNEL_VERSION 
   # generate init ramdisks
   echo ">>> MKINITCPIO SETUP"
   echo ">>> ----------------"
@@ -81,7 +81,7 @@ post_upgrade() {
   fi
   # updating module dependencies
   echo ">>> Updating module dependencies. Please wait ..."
-  depmod -v $KERNEL_VERSION > /dev/null 2>&1
+  depmod $KERNEL_VERSION
   echo ">>> MKINITCPIO SETUP"
   echo ">>> ----------------"
   if [ "`vercmp $2 2.6.18`" -lt 0 ]; then
