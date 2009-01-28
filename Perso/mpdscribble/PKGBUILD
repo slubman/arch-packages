@@ -1,0 +1,34 @@
+# Contributor: Luiz Ribeiro <luizribeiro@gmail.com>
+
+pkgname=mpdscribble
+pkgver=0.16
+pkgrel=1
+pkgdesc="mpd client which submits track info to audioscrobbler."
+url="http://www.frob.nl/scribble.html"
+arch=('i686' 'x86_64')
+license="GPL"
+depends=('libsoup')
+makedepends=('pkgconfig')
+backup=('etc/mpdscribble.conf')
+install=$pkgname.install
+source=('mpdscribble.init' 'mpdscribble.conf.example'
+        http://downloads.sourceforge.net/musicpd/${pkgname}-${pkgver}.tar.bz2)
+
+build() {
+  cd ${srcdir}/${pkgname}-${pkgver}
+  ./configure --prefix=/usr --sysconfdir=/etc
+  make || return 1
+  make DESTDIR=${pkgdir} install
+  install -D -m755 ../../mpdscribble.init ${pkgdir}/etc/rc.d/mpdscribble
+  install -D -m644 ../../mpdscribble.conf.example ${pkgdir}/etc/mpdscribble.conf.example
+  mkdir -p ${pkgdir}/var/cache/mpdscribble
+  touch ${pkgdir}/var/cache/mpdscribble/mpdscribble.cache
+}
+
+# vim:set ts=2 sw=2 et:
+md5sums=('f54c937c7b3ab8e4d39e4b903c2993fc'
+         '4fc5e58b38cf8da215c791001dc42094'
+         'deeeb403ebd50b7abacd1eeabc96b320')
+sha256sums=('7d6a8b0964f66e74c72af9fdf59babe6f82221ce64c143966664bbf4afae9c4e'
+            '78335c8db4a5b6137f9e28bfe76196b8531816cb5a8925fb9f47242a0f1cf718'
+            'b632316def02637b69fdb6b18a5e19364a87e23949565ff54606e3363589cb86')

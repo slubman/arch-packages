@@ -3,8 +3,8 @@
 # Maintainer: Thomas Baechler <thomas@archlinux.org>
 pkgname=kernel26
 _basekernel=2.6.28
-pkgver=2.6.28
-pkgrel=3
+pkgver=2.6.28.2
+pkgrel=1
 _patchname="patch-${pkgver}-${pkgrel}-ARCH"
 pkgdesc="The Linux Kernel and modules"
 arch=(i686 x86_64)
@@ -146,12 +146,12 @@ build() {
   rm -rf ${pkgdir}/usr/src/linux-${_kernver}/arch/{alpha,arm,arm26,avr32,blackfin,cris,frv,h8300,ia64,m32r,m68k,m68knommu,mips,mn10300,parisc,powerpc,ppc,s390,sh,sh64,sparc,sparc64,um,v850,xtensa}
 }
 md5sums=('d351e44709c9810b85e29b877f50968a'
-         '0f9b07b78488a21df23e9cef5e3c4c64'
+         '7e3194e7a4090363f272e66f1aedbc26'
          '817a3ae21ce441c5cfcff28a453354a6'
          '6eca2697c1754a7d34eb109804ee7891'
          '25584700a0a679542929c4bed31433b6')
 sha256sums=('ae0d97c55efe7fce01273c97f8152af0deff5541e3bbf5b9ad98689112b54380'
-            '3b3c61239eac0d89d2463a6a9ea2fac00d937633fc196613471d0d1e5ee05758'
+            'd038a9ac62f2d07a768872353c3ebdbce1a86fba0bd194525c1fee41a82ddc0a'
             '0923a2ff6aaf0ea23b9486726d2a994b082420e2bc934769a31c8cf8eca93d96'
             'ac33d5790183a82de82cc328202e39c85857d45244d5c744f48d33dec4bb4bed'
             '7ead13bbe2fdfc5308ddc3a0484d66f8150f78bbdbc59643e0b52bb9e776b5da')

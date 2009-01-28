@@ -1,3 +1,8 @@
+2009-01-28 Nicolas Doualot <public@slubman.info>
+   * Perso/mpdscribble : use latest version (based on the git AUR package)
+   * Patchs/kernel26 : sync with core
+   * Patchs/kqemu : recompiled against new kernel
+
 2009-01-24 Nicolas Doualot <public@slubman.info>
    * Patchs/mpd : upgrade to versio 0.14.1
 
