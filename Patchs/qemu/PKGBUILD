@@ -2,8 +2,8 @@
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
 pkgname=qemu
 pkgver=0.9.1
-pkgrel=22
-_kvmver=83
+pkgrel=23
+_kvmver=84
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL')
@@ -65,9 +65,9 @@ build()
 
 md5sums=('6591df8e9270eb358c881de4ebea1262'
          'ec06591830b8fcf53913f05f3d66f7e5'
-         'dfb3cc36029d84e83c5006c600337754'
+         '39b7206ef400845800f081a5b901f757'
          '1cdfcbd3cc569eec96a36d7557291fd2')
 sha256sums=('4756d0b4a4dc7dd88354bc6b37d381e4462dd328d0feef94803e90c0455835a5'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            '8c08827a4d150d765d466d745e08a7ebd7bd7f06e4a4ba56bcf335c12afe2134'
+            '934a2d670314580e192f6c8d83e7aef2b071e46a2cd021f1f10bf74b8987988e'
             '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64')
