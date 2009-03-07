@@ -1,0 +1,36 @@
+# $Id: PKGBUILD,v 1.6 2008/12/28 20:37:44 BaSh Exp $
+# Maintainer: Vesa Kaihlavirta <vegai@iki.fi>
+
+pkgname=quassel-core
+pkgver=0.4.0
+pkgrel=2
+pkgdesc="QT4 irc client with a separated core"
+url="http://quassel-irc.org"
+arch=(i686 x86_64)
+license=('GPL')
+depends=('qt')
+makedepends=('cmake')
+source=($url/system/files/quassel-$pkgver.tar.bz2
+	'quassel')
+
+build() {
+  cd $srcdir/
+
+  mkdir build
+  cd build
+
+  cmake -D CMAKE_INSTALL_PREFIX=/usr/ -D CMAKE_BUILD_TYPE="Release" -D WANT_QTCLIENT=OFF -D WANT_MONO=OFF ../quassel-$pkgver/ -Wno-dev || return 1
+  make || return 1
+  make DESTDIR=${pkgdir} install
+
+  # clean icons (provided by clietns)
+  rm -rf $pkgdir/usr/share/{pixmaps,icons}
+  rmdir $pkgdir/usr/share
+
+  install -D "$srcdir/quassel" "$pkgdir/etc/rc.d/quassel" || return 1
+}
+
+md5sums=('441295f4c47b3d68b930152026d14694'
+         '3b0b807f404bbe5f0ddcf74d5f19ab55')
+sha256sums=('5703cc0e5d28e2eddffaf885087b34c8df2431a3ab590f8f79b5199759115487'
+            '25fdae0d40f1a2bb789b6a4aabdcf82fdbe9216fa1b8eb35c6cd2dc717f1bdde')

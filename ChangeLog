@@ -1,3 +1,8 @@
+2009-03-07 Nicolas Doualot <public@slubman.info>
+   * Patchs/quassel-core : quassel core standalone
+   * Patchs/quassel-client-kde : quassel client standalone with KDE
+   integration
+
 2009-02-16 Nicolas Doualot <public@slubman.info>
    * Patchs/xine-lib : sync with extra
 
