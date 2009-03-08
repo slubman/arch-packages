@@ -1,0 +1,29 @@
+# vim:set ts=2 sw=2 et:
+# Contributor: Nicolas Doualot  <public@slubman.info>
+
+pkgname=stasks
+pkgver=0.3.2
+pkgrel=1
+pkgdesc=""
+arch=('i686' 'x86_64')
+url="http://www.kde-look.org/content/show.php?content=99739"
+license=('GPL')
+groups=('kde')
+depends=()
+makedepends=(cmake)
+
+source=(http://www.kde-look.org/CONTENT/content-files/99739-stasks-0.3.2.tar.gz)
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+
+  #./configure --prefix=/usr
+  mkdir build
+  cd build
+  cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
+  make || return 1
+  make DESTDIR="$pkgdir/" install
+}
+
+md5sums=('00763ad6934e16567ce2d5ea9564b3ee')
+sha256sums=('70a92970ece6868110a02066b830023b91b9b201b6acad0ee3eadc32751f6455')
