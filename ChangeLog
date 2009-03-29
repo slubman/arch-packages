@@ -1,3 +1,6 @@
+2009-03-30 Nicolas Doualot <public@slubman.info>
+   * Perso/rekonq : added this small Qt browser
+
 2009-03-29 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : cleaned PKGBUILD
    * Perso/fbreader-qt : An FBReader build compiled against Qt

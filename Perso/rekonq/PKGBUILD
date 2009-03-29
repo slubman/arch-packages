@@ -1,0 +1,25 @@
+# Contributor: Your Name <youremail@domain.com>
+# vim:set ts=2 sw=2 et:
+
+pkgname=rekonq
+pkgver=0.0.4
+pkgrel=1
+pkgdesc="A KDE browser separating each tab in a process"
+arch=('i686' 'x86_64')
+url="http://rekonq.sourceforge.net/"
+license=('GPL')
+depends=('kdelibs')
+makedepends=('cmake')
+source=(http://downloads.sourceforge.net/sourceforge/$pkgname/$pkgname-$pkgver.tar.bz2)
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+
+  mkdir build && cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr .. || return 1
+  make || return 1
+  make install DESTDIR="$pkgdir"
+}
+
+md5sums=('23c5a56b65c43ad9d7d9dd6260b7cf34')
+sha256sums=('e6d392355e6245d89fbe04dd2ae6d6eecabba692fdd3ddef436895cdac8b5161')
