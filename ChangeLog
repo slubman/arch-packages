@@ -1,3 +1,8 @@
+2009-03-29 Nicolas Doualot <public@slubman.info>
+   * Patchs/qemu : cleaned PKGBUILD
+   * Patchs/fbreader-qt : An FBReader build compiled against Qt
+   * Perso/stasks : removed
+
 2009-03-09 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : upgraded to version 0.10.0
 
