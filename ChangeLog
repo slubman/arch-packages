@@ -7,6 +7,8 @@
    * Patchs/kernel26 -> Legacy/kernel26
    * Patchs/kqemu -> Legacy/kqemu
    * Patchs/pulseaudio -> Legacy/pulseaudio
+   * Perso/fbreader-qt -> fbreader-qt4
+   * Perso/liblinebreak : added a separate liblinebreak package
 
 2009-03-29 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : cleaned PKGBUILD
