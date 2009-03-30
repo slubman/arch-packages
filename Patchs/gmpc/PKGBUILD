@@ -3,13 +3,13 @@
 # Contributor: Tobias Kieslich <tobias@justdreams.de>
 
 pkgname=gmpc
-pkgver=0.16.1
+pkgver=0.18.0
 pkgrel=1
 pkgdesc="a GNOME based GUI client tool for MPD"
 arch=(i686 x86_64)
-url="http://gmpcwiki.sarine.nl/index.php?title=GMPC"
+url="http://gmpc.wikia.com/wiki/Gnome_Music_Player_Client"
 license=("GPL")
-depends=('libglade' 'gob2' 'libmpd>=0.16.0' 'curl>=7.16.2' 'libsm')
+depends=('libglade' 'libmpd>=0.18.0' 'libsoup' 'curl' 'libsexy' 'libsm')
 options=(!libtool)
 source=(http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz)
 
@@ -25,7 +25,6 @@ build() {
     data/${pkgname}.desktop
   make DESTDIR=${startdir}/pkg install
 }
-md5sums=('5dc126a03da41cb92643b48dbd0aba82')
-sha256sums=('0f3030d0b466ff463d9daaa83e8a3190c3da872a7eb63c91876dba667b6c9f4f')
-md5sums=('5dc126a03da41cb92643b48dbd0aba82')
-sha256sums=('0f3030d0b466ff463d9daaa83e8a3190c3da872a7eb63c91876dba667b6c9f4f')
+
+md5sums=('4a0d3a4bd03686f4e51b23110186cba0')
+sha256sums=('7bb7bfebf6782f6bb3f9d586cb6a35a4340ef69f43b52ad0e06959b141a7db81')

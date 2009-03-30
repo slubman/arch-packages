@@ -1,4 +1,7 @@
 2009-03-30 Nicolas Doualot <public@slubman.info>
+   * Patch/libmpd : upgraded to version 0.18.0
+   * Patch/gmpc : upgraded to version 0.18.0
+   * Perso/gmpc-* : upgraded to version 0.18.0
    * Perso/rekonq : added this small Qt browser
 
 2009-03-29 Nicolas Doualot <public@slubman.info>

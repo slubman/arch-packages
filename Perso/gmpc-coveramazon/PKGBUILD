@@ -3,13 +3,13 @@
 # Contributor: slubman <public@slubman.info>
 
 pkgname=gmpc-coveramazon
-pkgver=0.16.0
+pkgver=0.18.0
 pkgrel=1
 pkgdesc="This plugin fetches cover art, and album information from amazon"
 arch=(i686 x86_64)
-url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_COVERAMAZON"
 license="GPL"
-depends=('libmpd>=0.16.0' 'libxml2' 'gtk2')
+depends=('libmpd>=0.18.0' 'gtk2')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 conflicts=gmpc-coveramazon-svn
@@ -20,5 +20,6 @@ build() {
   make || return 1
   make DESTDIR="${pkgdir}" install
 }
-md5sums=('e13c556793ef4559d8a3dc3072dabf56')
-sha256sums=('12a910f081d80c67dc51affade79e878d7db8b87e332d31dbf354d853251065b')
+
+md5sums=('c244bff7f3490801c08ba6f6b80fe1a3')
+sha256sums=('5feb80aecfe30469216bc81a5595b91dee5eb3c267efa7f44b1e276c70a6013a')

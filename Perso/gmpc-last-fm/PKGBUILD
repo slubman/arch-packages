@@ -2,24 +2,26 @@
 # Contributor: Arto Puranen <purcher@gmail.com>
 # Contributor: slubman <public@slubman.info>
 
-pkgname=gmpc-avahi
+pkgname=gmpc-last-fm
 pkgver=0.18.0
 pkgrel=1
-pkgdesc="A plugin for mpc for discover mpd daemon within avahi enabled networks"
+pkgdesc="The last.fm plugin can fetch artist images, from last.fm. This plugin doesn't scrobble your music, use a dedicated client like mpdscribble for this."
 arch=(i686 x86_64)
-url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_AVAHI"
+url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_LASTFM"
 license="GPL"
-depends=('libmpd>=0.18.0' 'gtk2' 'avahi')
+depends=('libmpd>=0.18.0' 'gtk2')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
-conflicts=gmpc-avahi-svn
+provide=(gmpc-lastfm)
+replace=(gmpc-lastfm)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
+
   ./configure --prefix=/usr
   make || return 1
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('001ee8ea58f0ea4188ab3f1159acaa0c')
-sha256sums=('80b406d141252d90048fde55c2b06b5cbb263afe814447e5d08d2d9f4c413bdc')
+md5sums=('80229e4ff801f2fa001c056c4cf02738')
+sha256sums=('e0a4c64087335d0107735e61ae3c6ee42e2aea33f1bc01f59de120d150d31b45')

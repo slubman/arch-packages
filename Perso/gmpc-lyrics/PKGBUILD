@@ -3,13 +3,13 @@
 # Contributor: slubman <public@slubman.info>
 
 pkgname=gmpc-lyrics
-pkgver=0.16.0
+pkgver=0.18.0
 pkgrel=1
 pkgdesc="This plugin fetches lyrics from the internet. It uses the following websites as sources: LyricWiki, LeosLyrics and Lyrics Tracker"
 arch=(i686 x86_64)
-url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_LYRICS"
 license="GPL"
-depends=('libmpd>=0.16.0' 'gtk2' 'libxml2')
+depends=('libmpd>=0.18.0' 'gtk2' 'curl')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 conflicts=gmpc-lyrics-svn
@@ -21,5 +21,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('7bb9c502771cffc0171620f46942bba9')
-sha256sums=('5ee568d13537718ff09e2367c44dd36628eb51f14c1090d69b33070a0ae6a24f')
+md5sums=('621d2a5f0d3e8dd574569304a22608e7')
+sha256sums=('aa5aba1be05457ae08bf03d5a57106505d6a2be71ae803b41ce770e5ec453976')

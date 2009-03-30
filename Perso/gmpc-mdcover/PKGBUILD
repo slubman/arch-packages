@@ -3,13 +3,13 @@
 # Contributor: slubman <public@slubman.info>
 
 pkgname=gmpc-mdcover
-pkgver=0.16.0
+pkgver=0.18.0
 pkgrel=1
 pkgdesc="A plugin for gmpc that obtains album covers from your music directory."
 arch=(i686 x86_64)
-url="http://gmpcwiki.sarine.nl/index.php?title=Plugins"
+url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_MDCOVER"
 license="GPL"
-depends=(libmpd libxml2 gtk2)
+depends=('libmpd>=0.18.0' 'gtk2')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 conflicts=gmpc-mdcover-svn
@@ -21,5 +21,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('838e78d6df59adb51cbfbabb5cd1bcf8')
-sha256sums=('315277ee30bb970aeccea39288bc003fc0c35fcdb318782e51df9c4f689fa7b5')
+md5sums=('ca6923f48bea01fcbc3ad9cbe73f84a0')
+sha256sums=('2372a4f99fe848e88a898c8d69ffa94542382f8ddb9231173f51e9f4bcf04864')
