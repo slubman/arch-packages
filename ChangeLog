@@ -6,6 +6,7 @@
    * Perso/gpmc-serverstats -> Legacy/gmpc-serverstats
    * Patchs/kernel26 -> Legacy/kernel26
    * Patchs/kqemu -> Legacy/kqemu
+   * Patchs/pulseaudio -> Legacy/pulseaudio
 
 2009-03-29 Nicolas Doualot <public@slubman.info>
    * Patchs/qemu : cleaned PKGBUILD
