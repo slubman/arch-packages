@@ -1,6 +1,9 @@
+2009-03-31 Nicolas Doualot <public@slubman.info>
+   * Patchs/mpd : upgrader to version 0.14.2
+
 2009-03-30 Nicolas Doualot <public@slubman.info>
-   * Patch/libmpd : upgraded to version 0.18.0
-   * Patch/gmpc : upgraded to version 0.18.0
+   * Patchs/libmpd : upgraded to version 0.18.0
+   * Patchs/gmpc : upgraded to version 0.18.0
    * Perso/gmpc-* : upgraded to version 0.18.0
    * Perso/rekonq : added this small Qt browser
    * Perso/gpmc-serverstats -> Legacy/gmpc-serverstats
