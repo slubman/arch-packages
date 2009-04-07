@@ -1,3 +1,6 @@
+2009-04-07 Nicolas Doualot <public@slubman.info>
+   * Patchs/gmpc : cleaned PKGBUILD
+
 2009-04-06 Nicolas Doualot <public@slubman.info>
    * Patchs/xine-lib : sync with extra
    * Patchs/mpd : recompiled against new libfaad.so

@@ -4,7 +4,7 @@
 
 pkgname=libmpd
 pkgver=0.18.0
-pkgrel=1
+pkgrel=3
 pkgdesc="Signal based wrapper around libmpdclient"
 arch=(i686 x86_64)
 license=('GPL')
@@ -14,10 +14,7 @@ options=('!libtool')
 source=(http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz)
 
 build() {
-  cd ${startdir}/src
-  mv index.php* ./${pkgname}-${pkgver}.tar.gz
-  tar xzf ${pkgname}-${pkgver}.tar.gz 
-  cd $startdir/src/$pkgname-$pkgver
+  cd $srcdir/$pkgname-$pkgver
   ./configure --prefix=/usr
   make || return 1
   make DESTDIR=$startdir/pkg install

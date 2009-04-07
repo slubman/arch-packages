@@ -5,7 +5,7 @@
 
 pkgname=gmpc
 pkgver=0.18.0
-pkgrel=1
+pkgrel=2
 pkgdesc="a GNOME based GUI client tool for MPD"
 arch=(i686 x86_64)
 url="http://gmpc.wikia.com/wiki/Gnome_Music_Player_Client"
@@ -15,16 +15,12 @@ options=(!libtool)
 source=(http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz)
 
 build() {
-  cd ${startdir}/src
-  mv index.php* ./${pkgname}-${pkgver}.tar.gz
-  tar xzf ${pkgname}-${pkgver}.tar.gz 
-
-  cd ${startdir}/src/${pkgname}-${pkgver}
-  ./configure --prefix=/usr
+  cd ${srcdir}/${pkgname}-${pkgver}
+  ./configure --prefix=/usr --enable-system-libsexy
   make || return 1
   sed -i 's|GNOME;Application;AudioVideo;|GTK;Application;AudioVideo;Player;|' \
     data/${pkgname}.desktop
-  make DESTDIR=${startdir}/pkg install
+  make DESTDIR=${pkgdir} install
 }
 
 md5sums=('4a0d3a4bd03686f4e51b23110186cba0')
