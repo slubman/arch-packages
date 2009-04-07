@@ -3,7 +3,7 @@
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
 
 pkgname=xine-lib
-pkgver=1.1.16.2
+pkgver=1.1.16.3
 pkgrel=1
 pkgdesc="A free video player for Unix"
 arch=('i686' 'x86_64')
@@ -36,7 +36,7 @@ build() {
   make DESTDIR=${pkgdir} install || return 1
 }
 
-md5sums=('336dd1f6266e9f943430ca6009b7aa7e'
+md5sums=('4f508abf088cf427a731f85634c8260d'
          '9776df4eb54d2f1f68d8268adbc3b5c2')
-sha256sums=('67f2469faee964b75f43459547b5e2f9a407b8dc30cbeffa989cce312e16b2c1'
+sha256sums=('d25a241efa55dc7d8f482336efa8bb7b9bb9d69b6df8a8a37f2660948fd67b52'
             '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757')

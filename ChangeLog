@@ -1,3 +1,7 @@
+2009-04-06 Nicolas Doualot <public@slubman.info>
+   * Patchs/xine-lib : sync with extra
+   * Patchs/mpd : recompiled against new libfaad.so
+
 2009-03-31 Nicolas Doualot <public@slubman.info>
    * Patchs/mpd : upgrader to version 0.14.2
 
