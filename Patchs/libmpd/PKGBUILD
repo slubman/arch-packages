@@ -1,5 +1,6 @@
 # $Id: PKGBUILD 356 2008-04-18 22:56:27Z aaron $
 # Maintainer: tobias <tobias@archlinux.org>
+# Contributor: Nicolas Doualot <public@slubman.info>
 
 pkgname=libmpd
 pkgver=0.18.0
