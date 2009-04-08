@@ -2,7 +2,7 @@
 # Maintainer: Vesa Kaihlavirta <vegai@iki.fi>
 
 pkgname=quassel-client-kde
-pkgver=0.4.0
+pkgver=0.4.1
 pkgrel=1
 pkgdesc="QT4 irc client with kde integration"
 url="http://quassel-irc.org"
@@ -25,7 +25,5 @@ build() {
   make DESTDIR=${pkgdir} install
 }
 
-md5sums=('441295f4c47b3d68b930152026d14694'
-         '3b0b807f404bbe5f0ddcf74d5f19ab55')
-sha256sums=('5703cc0e5d28e2eddffaf885087b34c8df2431a3ab590f8f79b5199759115487'
-            '25fdae0d40f1a2bb789b6a4aabdcf82fdbe9216fa1b8eb35c6cd2dc717f1bdde')
+md5sums=('bf89e3ff2e12c64d9cf8b1445e46039f')
+sha256sums=('d79491906995b420da3c86fc9bf4370a2deec907560f66e8e33e540b14703ce2')

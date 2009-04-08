@@ -1,9 +1,8 @@
-# $Id: PKGBUILD,v 1.6 2008/12/28 20:37:44 BaSh Exp $
-# Maintainer: Vesa Kaihlavirta <vegai@iki.fi>
+# Contributor: Nicolas Doualot <public@slubman.info>
 
 pkgname=quassel-core
-pkgver=0.4.0
-pkgrel=2
+pkgver=0.4.1
+pkgrel=1
 pkgdesc="QT4 irc client with a separated core"
 url="http://quassel-irc.org"
 arch=(i686 x86_64)
@@ -14,7 +13,7 @@ source=($url/system/files/quassel-$pkgver.tar.bz2
 	'quassel')
 
 build() {
-  cd $srcdir/
+  cd $srcdir
 
   mkdir build
   cd build
@@ -30,7 +29,7 @@ build() {
   install -D "$srcdir/quassel" "$pkgdir/etc/rc.d/quassel" || return 1
 }
 
-md5sums=('441295f4c47b3d68b930152026d14694'
+md5sums=('bf89e3ff2e12c64d9cf8b1445e46039f'
          '3b0b807f404bbe5f0ddcf74d5f19ab55')
-sha256sums=('5703cc0e5d28e2eddffaf885087b34c8df2431a3ab590f8f79b5199759115487'
+sha256sums=('d79491906995b420da3c86fc9bf4370a2deec907560f66e8e33e540b14703ce2'
             '25fdae0d40f1a2bb789b6a4aabdcf82fdbe9216fa1b8eb35c6cd2dc717f1bdde')
