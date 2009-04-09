@@ -1,4 +1,6 @@
 2009-04-08 Nicolas Doualot <public@slubman.info>
+   * Patchs/qemu : upgraded to version 0.10.2. Enabled kvm support in normal
+   qemu, but also include the latest available kvm as qemu-kvm
    * Patchs/quassel-* : updated to quassel 0.4.1
 
 2009-04-07 Nicolas Doualot <public@slubman.info>
