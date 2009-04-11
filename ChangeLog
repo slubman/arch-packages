@@ -1,21 +1,21 @@
-2009-04-08 Nicolas Doualot <public@slubman.info>
+2009-04-08 Nicolas Doualot <packages@slubman.info>
    * Patchs/zsh => Legacy/zsh : I stand with my bash
    * Patchs/quassel-* => Perso/quassel-*
    * Patchs/qemu : upgraded to version 0.10.2. Enabled kvm support in normal
    qemu, but also include the latest available kvm as qemu-kvm
    * Patchs/quassel-* : updated to quassel 0.4.1
 
-2009-04-07 Nicolas Doualot <public@slubman.info>
+2009-04-07 Nicolas Doualot <packages@slubman.info>
    * Patchs/gmpc : cleaned PKGBUILD
 
-2009-04-06 Nicolas Doualot <public@slubman.info>
+2009-04-06 Nicolas Doualot <packages@slubman.info>
    * Patchs/xine-lib : sync with extra
    * Patchs/mpd : recompiled against new libfaad.so
 
-2009-03-31 Nicolas Doualot <public@slubman.info>
+2009-03-31 Nicolas Doualot <packages@slubman.info>
    * Patchs/mpd : upgrader to version 0.14.2
 
-2009-03-30 Nicolas Doualot <public@slubman.info>
+2009-03-30 Nicolas Doualot <packages@slubman.info>
    * Patchs/libmpd : upgraded to version 0.18.0
    * Patchs/gmpc : upgraded to version 0.18.0
    * Perso/gmpc-* : upgraded to version 0.18.0
@@ -27,130 +27,130 @@
    * Perso/fbreader-qt -> fbreader-qt4
    * Perso/liblinebreak : added a separate liblinebreak package
 
-2009-03-29 Nicolas Doualot <public@slubman.info>
+2009-03-29 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : cleaned PKGBUILD
    * Perso/fbreader-qt : An FBReader build compiled against Qt
    * Perso/stasks : removed
 
-2009-03-09 Nicolas Doualot <public@slubman.info>
+2009-03-09 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : upgraded to version 0.10.0
 
-2009-03-08 Nicolas Doualot <public@slubman.info>
+2009-03-08 Nicolas Doualot <packages@slubman.info>
    * Perso/stasks : added stasks, a replacement task manager for KDE
 
-2009-03-07 Nicolas Doualot <public@slubman.info>
+2009-03-07 Nicolas Doualot <packages@slubman.info>
    * Patchs/quassel-core : quassel core standalone
    * Patchs/quassel-client-kde : quassel client standalone with KDE
    integration
 
-2009-02-16 Nicolas Doualot <public@slubman.info>
+2009-02-16 Nicolas Doualot <packages@slubman.info>
    * Patchs/xine-lib : sync with extra
 
-2009-02-16 Nicolas Doualot <public@slubman.info>
+2009-02-16 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : upgraded to kvm-84
 
-2009-02-15 Nicolas Doualot <public@slubman.info>
+2009-02-15 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : recompiled qemu-kvm against new libbluetooth
 
-2009-01-28 Nicolas Doualot <public@slubman.info>
+2009-01-28 Nicolas Doualot <packages@slubman.info>
    * Perso/mpdscribble : use latest version (based on the git AUR package)
    * Patchs/kernel26 : sync with core
    * Patchs/kqemu : recompiled against new kernel
 
-2009-01-24 Nicolas Doualot <public@slubman.info>
+2009-01-24 Nicolas Doualot <packages@slubman.info>
    * Patchs/mpd : upgrade to versio 0.14.1
 
-2009-01-14 Nicolas Doualot <public@slubman.info>
+2009-01-14 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : upgraded to kvm-83
 
-2009-01-09 Nicolas Doualot <public@slubman.info>
+2009-01-09 Nicolas Doualot <packages@slubman.info>
    * Patchs/kernel26 : 2.6.27 => 2.6.28
    * Patchs/kqemu : recompiled against new kernel
 
-2008-11-24 Nicolas Doualot <public@slubman.info>
+2008-11-24 Nicolas Doualot <packages@slubman.info>
    * Patchs/xine-lib : match extra version
    * Patchs/pulseaudio : upgraded to latest version
    * Patchs/qemu : upgraded to kvm-82
 
-2008-11-24 Nicolas Doualot <public@slubman.info>
+2008-11-24 Nicolas Doualot <packages@slubman.info>
    * Patchs/kernel26: 2.6.27 sync with extra
 
-2008-11-13 Nicolas Doualot <public@slubman.info>
+2008-11-13 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : upgraded to kvm-79
 
-2008-11-04 Nicolas Doualot <public@slubman.info>
+2008-11-04 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : upgraded to kvm-78
 
-2008-11-01 Nicolas Doualot <public@slubman.info>
+2008-11-01 Nicolas Doualot <packages@slubman.info>
    * Patchs/libmpd : updated to version 0.16.1
    * Patchs/gmpc : updated to version 0.16.1
    * Perso/gmpc-* : plugins for gmpc 0.16.1
 
-2008-10-14 Nicolas Doualot <public@slubman.info>
+2008-10-14 Nicolas Doualot <packages@slubman.info>
    * Perso/screenie-slb-git : update to match git changes
 
-2008-10-13 Nicolas Doualot <public@slubman.info>
+2008-10-13 Nicolas Doualot <packages@slubman.info>
    * Patchs/kernel26 : 2.6.27 sync with testing
    * Patchs/qemu : updated to kvm-77
    * Patchs/kqemu : recompiled against new kernel
 
-2008-10-10 Nicolas Doualot <public@slubman.info>
+2008-10-10 Nicolas Doualot <packages@slubman.info>
    * Patchs/kernel26 : 2.6.26.5 => 2.6.27
    * Patchs/kqemu : Recompiled against new kernel
 
-2008-09-26 Nicolas Doualot <public@slubman.info>
+2008-09-26 Nicolas Doualot <packages@slubman.info>
    * Perso/xvideoservicethief : A tool to download and convert videos from
                                 some websites.
 
-2008-09-22 Nicolas Doualot <public@slubman.info>
+2008-09-22 Nicolas Doualot <packages@slubman.info>
    * Patchs/pulseaudio : Some fixes, now should work fine
 
-2008-09-22 Nicolas Doualot <public@slubman.info>
+2008-09-22 Nicolas Doualot <packages@slubman.info>
    * Patchs/pulseaudio : updated to O.9.12
 
-2008-09-14 Nicolas Doualot <public@slubman.info>
+2008-09-14 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : Add a patch to anable USB support in kvm with newer
                    kernels.
 
-2008-09-11 Nicolas Doualot <public@slubman.info>
+2008-09-11 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : Added qemu
 
-2008-09-10 Nicolas Doualot <public@slubman.info>
+2008-09-10 Nicolas Doualot <packages@slubman.info>
    * Patchs/kernel26 : 2.6.26.3 => 2.6.26.5 
        renammed 2.6.26-ARCH => 2.6.26-slb
 
-2008-09-10 Nicolas Doualot <public@slubman.info>
+2008-09-10 Nicolas Doualot <packages@slubman.info>
    * Patchs/kernel26 : Added customized kernel (HUGETLB, CORE2)
    * Perso/screenie-slb-git : updated icon
 
-2008-09-08 Nicolas Doualot <public@slubman.info>
+2008-09-08 Nicolas Doualot <packages@slubman.info>
    * Patchs/pulseaudio : Upgraded to latest pulseaudio
    * Added a .gitignore file
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Perso/screenie-slb-git : Add a .desktop file, and the according icon file
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Patchs/zsh : use latest version
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Patchs/xine-lib : build against pulseaudio and libaa
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Perso/pure-ftp-slb : pure-ftp with my customs options
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Add details to Changelog
 
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Merged changlog files.
 
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Perso/screenie-slb-git : Add a package of my modified screenie version
 
-2008-09-07 Nicolas Doualot <public@slubman.info>
+2008-09-07 Nicolas Doualot <packages@slubman.info>
    Initial commit on git repo
 
    Patchs/

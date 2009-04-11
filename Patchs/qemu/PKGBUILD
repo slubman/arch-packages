@@ -1,5 +1,5 @@
 # Maintainer: Tobias Powalowski <tpowa@archlinux.org>
-# Contributor : Nicolas Doualot <public@slubman.info>
+# Contributor : Nicolas Doualot <packages@slubman.info>
 
 pkgname=qemu
 pkgver=0.10.2
