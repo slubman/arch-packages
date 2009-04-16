@@ -1,0 +1,26 @@
+# $Id: PKGBUILD,v 1.6 2009/04/13 09:19:05 sergej Exp $
+# Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
+
+pkgname=vnstat
+pkgver=1.7
+pkgrel=1
+pkgdesc="network traffic monitor for Linux that keeps a log of daily network traffic for the selected interface(s)"
+arch=(i686 x86_64)
+url="http://humdi.net/vnstat"
+license=('GPL')
+depends=('gd')
+makedepends=()
+install=vnstat.install
+source=(http://humdi.net/vnstat/$pkgname-$pkgver.tar.gz)
+md5sums=('e5788e8122e34f2c93561e2a84c19432')
+
+build() {
+  cd $startdir/src/$pkgname-$pkgver
+  mkdir -p $startdir/pkg/usr/share/vnstat/cron
+  mkdir -p $startdir/pkg/etc/cron.d
+  cp cron/vnstat $startdir/pkg/usr/share/vnstat/cron
+  make all || return 1
+  make DESTDIR=$startdir/pkg/ install || return 1
+  install -D -m0644 cron/vnstat $pkgdir/etc/cron.d/vnstat && \
+  sed -i 's#root##' $pkgdir/etc/cron.d/vnstat
+}

@@ -1,3 +1,6 @@
+2009-04-16 Nicolas Doualot <packages@slubman.info>
+   * Patchs/vnstat : enbale vnstati compilation
+
 2009-04-08 Nicolas Doualot <packages@slubman.info>
    * Patchs/zsh => Legacy/zsh : I stand with my bash
    * Patchs/quassel-* => Perso/quassel-*
