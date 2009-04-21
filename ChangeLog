@@ -1,3 +1,9 @@
+2009-04-21 Nicolas Doualot <packages@slubman.info>
+   * Patchs/qemu : upgraded kvm to version 85
+
+2009-04-17 Nicolas Doualot <packages@slubman.info>
+   * Patchs/xine-lib : sync with extra
+
 2009-04-16 Nicolas Doualot <packages@slubman.info>
    * Patchs/vnstat : enbale vnstati compilation
 

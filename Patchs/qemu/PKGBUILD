@@ -3,8 +3,8 @@
 
 pkgname=qemu
 pkgver=0.10.2
-pkgrel=4
-_kvmver=84
+pkgrel=5
+_kvmver=85
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL' 'LGPL2')
@@ -57,9 +57,9 @@ build()
 
 md5sums=('85a323cdf620687f39c5328f450a547d'
          'ec06591830b8fcf53913f05f3d66f7e5'
-         '39b7206ef400845800f081a5b901f757'
+         '7eec5cec0368e098f11ced03395e7439'
          '1cdfcbd3cc569eec96a36d7557291fd2')
 sha256sums=('fb93a49b2999a4572337fc9012c1b64be1095477446edda1a885b20387ec9a69'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            '934a2d670314580e192f6c8d83e7aef2b071e46a2cd021f1f10bf74b8987988e'
+            '628601051997677ab4501903b366519a47b1cf16f6ce6f8871a12da478a0c6ad'
             '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64')
