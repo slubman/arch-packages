@@ -6,14 +6,14 @@
 
 pkgname=pure-ftpd-slb
 _pkgbase=pure-ftpd
-pkgver=1.0.21
-pkgrel=4
+pkgver=1.0.22
+pkgrel=1
 pkgdesc="Pure FTP Server is a fast, production quality, standards-conformant FTP server"
 arch=(i686 x86_64)
 license=('custom')
 provides=('pure-ftpd')
 conflicts=('pure-ftpd')
-depends=('libpcap' 'perl')
+depends=('libcap' 'openssl' 'perl')
 backup=('etc/pure-ftpd.conf')
 install=pure-ftpd.install
 source=(ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/$_pkgbase-$pkgver.tar.bz2\
@@ -31,11 +31,11 @@ build() {
    install -D -m644 COPYING $startdir/pkg/usr/share/licenses/$pkgname
 }
 
-md5sums=('ca8a8dbec0cd9c8ea92fc4c37ea9c410'
-	  '13cf942b643db7cf3e612185366391ca'
-	  '32eece2a4fef7ebe32ec06761bc3edd1'
-	  '007f1327760272c696d2e365211e552c')
-sha1sums=('1405ff2b9b9c3616c4e390eb99779884173a3347'
-	  'c63f2c3d29a6cfe86d62a20590f101d67f4dddd8'
-	  '6a8bdadfb84204bb87db4580f5e14212efd53baa'
-	  '274bf6399afa4fbb6cb8593181c103e3ff7f1070')
+md5sums=('7f9ceefafaf9eb8fca757d7358f474fa'
+         '13cf942b643db7cf3e612185366391ca'
+         '32eece2a4fef7ebe32ec06761bc3edd1'
+         '007f1327760272c696d2e365211e552c')
+sha256sums=('f362455d63899881b078c9ed51ee81348486cb77794defab7646cad218ad1a8f'
+            'a5931bcb6c63b65d532776c206dc9cb464efa4ea7afda131e11e855b1349fdb0'
+            'a7f37c8e6f461b09f70afa06994f6f9e482d84e28d9bac82d22d91c3ad2c81a7'
+            '89ec04355d13f06001c85aecfa47c713152f6ccbb923dcbe99bf93e7da937bf4')
