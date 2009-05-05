@@ -1,3 +1,6 @@
+2009-05-05 Nicolas Doualot <packages@slubman.info>
+   * Perso/pure-ftpd-slb : recompiled against new libcap
+
 2009-04-27 Nicolas Doualot <packages@slubman.info>
    * Patchs/qemu : change udev rules directory
    * Perso/pure-ftpd-slb : updated to version 1.0.22

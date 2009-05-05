@@ -7,7 +7,7 @@
 pkgname=pure-ftpd-slb
 _pkgbase=pure-ftpd
 pkgver=1.0.22
-pkgrel=1
+pkgrel=2
 pkgdesc="Pure FTP Server is a fast, production quality, standards-conformant FTP server"
 arch=(i686 x86_64)
 license=('custom')
