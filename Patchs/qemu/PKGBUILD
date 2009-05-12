@@ -2,8 +2,8 @@
 # Contributor : Nicolas Doualot <packages@slubman.info>
 
 pkgname=qemu
-pkgver=0.10.2
-pkgrel=5
+pkgver=0.10.3
+pkgrel=2
 _kvmver=85
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
@@ -21,7 +21,6 @@ build()
 {
   cd ${srcdir}/${pkgname}-${pkgver}
   unset CFLAGS
-  sed -i -e 's/lib64/lib/g' x86_64.ld || return 1
   ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa \
               --kerneldir="/usr/src/linux-$(uname -r)"
   make || return 1
@@ -32,14 +31,9 @@ build()
   # we add the kvm/qemu version
     cd ${srcdir}/kvm-$_kvmver
     patch -Np1 -i ../kvm-bios.diff || return 1
-    ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa
-  # fix sdl compilation, JON: and extboot
-    sed -i -e 's#-rpath,/usr/lib#-rpath,/usr/lib,-rpath,/lib#g' qemu/config-host.mak
-    for dir in libkvm user qemu extboot; do
-      cd ${srcdir}/kvm-$_kvmver/${dir}
-      make || return 1
-    done
-   # install kvm-qemu
+    ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa --with-patched-kernel
+    make || return 1
+   # install kvm-qemu as qemu-kvm
     install -m 755 ${srcdir}/kvm-$_kvmver/qemu/x86_64-softmmu/qemu-system-x86_64 \
         ${pkgdir}/usr/bin/qemu-kvm
     install -D -m644 ${srcdir}/kvm-$_kvmver/scripts/65-kvm.rules \
@@ -55,11 +49,11 @@ build()
 	${pkgdir}/usr/share/qemu/extboot-kvm.bin
 }
 
-md5sums=('85a323cdf620687f39c5328f450a547d'
+md5sums=('320d6c536c8a1288cdc6c809f487e6d7'
          'ec06591830b8fcf53913f05f3d66f7e5'
          '7eec5cec0368e098f11ced03395e7439'
          '1cdfcbd3cc569eec96a36d7557291fd2')
-sha256sums=('fb93a49b2999a4572337fc9012c1b64be1095477446edda1a885b20387ec9a69'
+sha256sums=('89540d7a8c880a6ae33f8a55d55d580f3f03c10b02e32b7323719b3354f7b077'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
             '628601051997677ab4501903b366519a47b1cf16f6ce6f8871a12da478a0c6ad'
             '78f4994db9161fd7c5384874a47802c03e5d2c0b4c4b8d75c3c687bb6a1d2f64')

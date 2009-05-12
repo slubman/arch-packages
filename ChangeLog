@@ -1,3 +1,6 @@
+2009-05-12 Nicolas Doualot <packages@slubman.info>
+   * Patchs/qemu : upgraded to version 0.10.3
+
 2009-05-05 Nicolas Doualot <packages@slubman.info>
    * Perso/pure-ftpd-slb : recompiled against new libcap
 
