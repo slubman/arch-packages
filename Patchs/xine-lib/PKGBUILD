@@ -4,13 +4,13 @@
 
 pkgname=xine-lib
 pkgver=1.1.16.3
-pkgrel=2
+pkgrel=3
 pkgdesc="A free video player for Unix"
 arch=('i686' 'x86_64')
 url="http://xinehq.de/"
 license=('LGPL' 'GPL')
 depends=('libgl' 'libxvmc' 'esound' 'flac>=1.1.4' 'libvorbis' 'sdl' 'libmng' 'libtheora'
-         'libxcb' 'wavpack' 'ffmpeg>=20081220' 'heimdal>=1.2.1')
+         'libxcb' 'wavpack' 'ffmpeg>=0.5' 'heimdal>=1.2.1' 'faad2>=2.7')
 makedepends=('pkgconfig' 'libtool' 'imagemagick' 'smbclient' 'mesa' 'alsa-lib' 
              'vcdimager' 'pulseaudio')
 options=('!libtool')
@@ -35,8 +35,6 @@ build() {
   make || return 1
   make DESTDIR=${pkgdir} install || return 1
 }
-
 md5sums=('4f508abf088cf427a731f85634c8260d'
          '9776df4eb54d2f1f68d8268adbc3b5c2')
-sha256sums=('d25a241efa55dc7d8f482336efa8bb7b9bb9d69b6df8a8a37f2660948fd67b52'
-            '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757')
+sha256sums=('d25a241efa55dc7d8f482336efa8bb7b9bb9d69b6df8a8a37f2660948fd67b52'            '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757')
