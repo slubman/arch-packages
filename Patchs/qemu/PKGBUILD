@@ -2,7 +2,7 @@
 # Contributor : Nicolas Doualot <packages@slubman.info>
 
 pkgname=qemu
-pkgver=0.10.3
+pkgver=0.10.5
 pkgrel=3
 _kvmver=86
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
@@ -50,11 +50,11 @@ build()
 	${pkgdir}/usr/share/qemu/extboot-kvm.bin
 }
 
-md5sums=('320d6c536c8a1288cdc6c809f487e6d7'
+md5sums=('60060feb98c9649a5da8b136685f76ba'
          'ec06591830b8fcf53913f05f3d66f7e5'
          'cd8cc78c56ddaaf0be421919f8a6835c'
          '32c2d403067c8ec5ab4b5f59b3e619e0')
-sha256sums=('89540d7a8c880a6ae33f8a55d55d580f3f03c10b02e32b7323719b3354f7b077'
+sha256sums=('d54f268f5545dd182d96c1b09e79af58efaf2e51695efd1331d560a552d657c1'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
             '5d750eb4111a2ed68f4fd1250f9bf14e8f3fd1da38fad6a2078a62d07c13d89d'
             '6bb53da5854b2d4cc79fa10c4c629533d5cdfdbce280ed05067678501fcff877')

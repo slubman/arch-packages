@@ -1,3 +1,6 @@
+2009-05-23  Nicolas Doualot  <packages@slubman.info>
+   * Patchs/qemu : upgraded qemu 0.10.5
+
 2009-05-21  Nicolas Doualot  <packages@slubman.info>
    * Patchs/qemu : upgraded kvm to version 86
 
