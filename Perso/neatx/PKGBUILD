@@ -10,7 +10,8 @@ license=('GPL')
 depends=('nxserver' 'python-pexpect' 'python-simplejson')
 makedepends=('docutils')
 optdepends=(
-  'xorg-xdm: if you want to use KDE or GNOME'
+  'xorg-xdm: if you want to use KDE or GNOME session'
+  'xterm: if you want console session'
 )
 install=neatx.install
 source=(http://neatx.googlecode.com/files/$pkgname-$pkgver.tar.gz

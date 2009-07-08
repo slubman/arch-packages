@@ -1,5 +1,6 @@
 2009-05-23  Nicolas Doualot  <packages@slubman.info>
    * Perso/neatx : Added the google NX server a.k.a neatx
+   * .gitignore : added some patterns (for src and build)
 
 2009-05-23  Nicolas Doualot  <packages@slubman.info>
    * Patchs/qemu : upgraded qemu 0.10.5
