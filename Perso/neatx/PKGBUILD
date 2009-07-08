@@ -1,0 +1,40 @@
+# Contributor: Nicolas Doualot <packages@slubman.info>
+# vim:set ts=2 sw=2 et:
+pkgname=neatx
+pkgver=0.3.1
+pkgrel=1
+pkgdesc="A free NX server by google"
+arch=('i686' 'x86_64')
+url="http://code.google.com/p/neatx/"
+license=('GPL')
+groups=()
+depends=('nxserver' 'python-pexpect' 'python-simplejson')
+makedepends=('docutils')
+optdepends=(
+  'xorg-xdm: if you want to use KDE or GNOME'
+)
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=neatx.install
+source=(http://neatx.googlecode.com/files/$pkgname-$pkgver.tar.gz
+        constants.archlinux.patch
+)
+noextract=()
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  patch -i "$srcdir/constants.archlinux.patch" -p2 || return 1
+
+  ./configure --prefix=/usr --localstatedir=/var RST2HTML=/usr/bin/rst2html.py
+  make || return 1
+  make DESTDIR="$pkgdir/" install
+  chmod 777 "$pkgdir/var/lib/neatx/sessions"
+}
+
+md5sums=('5748656738d5f04fef1af01b9fe5ef20'
+         'a5ca4aa399cc25fa8435280e8b03c5a3')
+sha256sums=('1ae6f8a3a67a0256eaa3a462b0d74125065d03e9f45b151e8e5b6a5dcb8f39c7'
+            '6d68df27ea94bb59381c4e7921c76db7c1703c0a3302fa9d5ee1cb4e386166a1')
