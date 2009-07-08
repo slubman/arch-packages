@@ -7,17 +7,11 @@ pkgdesc="A free NX server by google"
 arch=('i686' 'x86_64')
 url="http://code.google.com/p/neatx/"
 license=('GPL')
-groups=()
 depends=('nxserver' 'python-pexpect' 'python-simplejson')
 makedepends=('docutils')
 optdepends=(
   'xorg-xdm: if you want to use KDE or GNOME'
 )
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
 install=neatx.install
 source=(http://neatx.googlecode.com/files/$pkgname-$pkgver.tar.gz
         constants.archlinux.patch
