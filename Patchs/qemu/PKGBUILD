@@ -3,19 +3,19 @@
 
 pkgname=qemu
 pkgver=0.10.5
-pkgrel=3
-_kvmver=86
+pkgrel=5
+_kvmver=88
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL' 'LGPL2')
 url="http://www.nongnu.org/qemu"
-depends=('sdl' 'alsa-lib' 'zlib' 'e2fsprogs' 'gnutls>=2.0.4')
+depends=('sdl' 'alsa-lib' 'zlib' 'gnutls>=2.0.4')
 makedepends=('pulseaudio')
 install=qemu.install
 source=(http://download.savannah.gnu.org/releases/${pkgname}/${pkgname}-${pkgver}.tar.gz
         70-kqemu.rules \
         http://downloads.sourceforge.net/kvm/kvm-$_kvmver.tar.gz\
-	kvm-bios.diff)
+	kvm-bios.diff vga-ram-size.diff)
 
 build()
 {
@@ -31,7 +31,9 @@ build()
   # we add the kvm/qemu version
     cd ${srcdir}/kvm-$_kvmver
     patch -Np1 -i ../kvm-bios.diff || return 1
+    patch -Np1 -i ../vga-ram-size.diff || return 1
     #./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa --with-patched-kernel
+    rm kvm/kernel/configure
     ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa
     make || return 1
    # install kvm-qemu as qemu-kvm
@@ -46,15 +48,17 @@ build()
        ${pkgdir}/usr/share/qemu/vgabios-kvm.bin
    install -D -m644 ${srcdir}/kvm-$_kvmver/pc-bios/vgabios-cirrus.bin \
        ${pkgdir}/usr/share/qemu/vgabios-cirrus-kvm.bin
-   install -D -m644 ${srcdir}/kvm-$_kvmver/kvm/extboot/extboot.bin \
-	${pkgdir}/usr/share/qemu/extboot-kvm.bin
+   install -D -m644 ${srcdir}/kvm-$_kvmver/pc-bios/extboot.bin \
+       ${pkgdir}/usr/share/qemu/extboot-kvm.bin
 }
 
 md5sums=('60060feb98c9649a5da8b136685f76ba'
          'ec06591830b8fcf53913f05f3d66f7e5'
-         'cd8cc78c56ddaaf0be421919f8a6835c'
-         '32c2d403067c8ec5ab4b5f59b3e619e0')
+         '02371948fcee1fa2a77e7a457384d71c'
+         '32c2d403067c8ec5ab4b5f59b3e619e0'
+         '7cd64ab0781ca41756f71d5baf5c6ba5')
 sha256sums=('d54f268f5545dd182d96c1b09e79af58efaf2e51695efd1331d560a552d657c1'
             'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
-            '5d750eb4111a2ed68f4fd1250f9bf14e8f3fd1da38fad6a2078a62d07c13d89d'
-            '6bb53da5854b2d4cc79fa10c4c629533d5cdfdbce280ed05067678501fcff877')
+            'dc67e4d9341f0663232ea85cf4e0da8383f5b345422925d9e4254c371f67b53e'
+            '6bb53da5854b2d4cc79fa10c4c629533d5cdfdbce280ed05067678501fcff877'
+            'ae4819ccf7195028810ae83dc4b634f4e9479b5ea31e08d006ea064ccffc6d5d')
