@@ -2,12 +2,12 @@
 # vim:set ts=2 sw=2 et:
 pkgname=neatx
 pkgver=0.3.1
-pkgrel=1
+pkgrel=3
 pkgdesc="A free NX server by google"
 arch=('i686' 'x86_64')
 url="http://code.google.com/p/neatx/"
 license=('GPL')
-depends=('nxserver' 'python-pexpect' 'python-simplejson')
+depends=('nxserver' 'python-pexpect' 'python-simplejson' 'gnu-netcat' 'pygtk')
 makedepends=('docutils')
 optdepends=(
   'xorg-xdm: if you want to use KDE or GNOME session'
