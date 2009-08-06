@@ -1,3 +1,6 @@
+2009-08-06  Nicolas Doualot  <packages@slubman.info>
+   * Patchs/qemu : create a package() function
+
 2009-08-05  Nicolas Doualot  <packages@slubman.info>
    * Patchs/qemu : upgraded to qemu 0.10.6
    * Patchs/mpd : upgraded to 0.15 (sync with extra)
