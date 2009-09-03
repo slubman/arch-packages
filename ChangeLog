@@ -1,3 +1,6 @@
+2009-09-03  Nicolas Doualot  <packages@slubman.info>
+   * Patchs/mpd : sync with extra => 0.15.2
+
 2009-08-06  Nicolas Doualot  <packages@slubman.info>
    * Patchs/qemu : create a package() function
 
