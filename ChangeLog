@@ -1,6 +1,7 @@
 2009-10-07  Nicolas Doualot  <packages@slubman.info>
    * Perso/gmpc : upgraded to gmpc 0.19.0
    * Patchs/mpd : sync with extra => 0.15.4
+   * Patchs/qemu : use qemu-kvm 0.11
 
 2009-09-03  Nicolas Doualot  <packages@slubman.info>
    * Patchs/mpd : sync with extra => 0.15.2
