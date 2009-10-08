@@ -2,17 +2,17 @@
 # Contributor: Arto Puranen <purcher@gmail.com>
 # Contributor: slubman <packages@slubman.info>
 
-pkgname=gmpc-libnotify
+pkgname=gmpc-albumview
 pkgver=0.19.0
 pkgrel=1
-pkgdesc="A plugin for gmpc that displays notifications using libnotify"
+pkgdesc="This plugin fetches cover art, and album information from amazon"
 arch=(i686 x86_64)
-url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_LIBNOTIFY"
+url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_COVERAMAZON"
 license="GPL"
-depends=('libmpd>=0.19.0' 'libnotify')
+depends=('libmpd>=0.19.0' 'gtk2')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
-conflicts=gmpc-libnotify-svn
+conflicts=gmpc-coveramazon-svn
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
@@ -21,5 +21,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('da1a96fbedb216976b1dae0bbd4bbcb2')
-sha256sums=('72ae8fc35d06aaf9f29e16eac9852196e21f721ded2b59a3d2c01b7c3403fb96')
+md5sums=('66f22d939856fe8f29b9d7c0e2828d4f')
+sha256sums=('5e3e895e6e47a21c11eb007110fa1c94ea8c332a014b354362bcfbd383490694')
