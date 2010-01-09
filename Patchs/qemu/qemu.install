@@ -11,10 +11,6 @@ post_install() {
   echo ""
   echo ">>> 'qemu-kvm' flexibility:"
   echo ">>>  You can use the qemu-kvm binary without kvm module too."
-  echo""
-  echo ">>> PLEASE READ FOR KQEMU USAGE!"
-  echo ">>> You need to install the 'kqemu' package for your kernel."
-  echo ">>> You need to load the module to use qemu with kqemu."
 
   /bin/true
 }
