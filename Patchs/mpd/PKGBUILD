@@ -4,8 +4,8 @@
 # Contributor: Nicolas Doualot <packages@slubman.info>
 
 pkgname=mpd
-pkgver=0.15.4
-pkgrel=1
+pkgver=0.15.7
+pkgrel=2
 pkgdesc="Music daemon that plays MP3, FLAC, and Ogg Vorbis files"
 arch=('i686' 'x86_64')
 license=('GPL')
@@ -22,6 +22,7 @@ build() {
   cd ${srcdir}/${pkgname}-${pkgver}
   ./configure --prefix=/usr \
     --sysconfdir=/etc \
+    --enable-lastfm \
     --disable-jack \
     --enable-ao \
     --enable-mikmod \
@@ -47,7 +48,7 @@ build() {
   install -d ${pkgdir}/var/lib/mpd/playlists ${pkgdir}/var/log/mpd ${pkgdir}/var/run/mpd
 }
 
-md5sums=('addbbcbbf8a24a2ce80db1ba5a1f91ca'
+md5sums=('ecec7f0bdfe8024cc4daa53e4cc476a4'
          'b1fd15de359db08e4b9ae4b199640f0e')
-sha256sums=('0d622736a71013ece9639eea0e43b1a94eb973824f089d052e8a158fabbf0bce'
+sha256sums=('5f8f861510cb4c3623c435258e5c089e72fa844843cbfb4d91f70207a5ed4894'
             '7f6a7dd7fc622eadcd9fa8d18ac0d99fb3484d9a47400d631caf6ac7ed59bc04')
