@@ -1,24 +1,26 @@
 # Maintainer: Eric Belanger <eric@archlinux.org>
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
-# Contributor: Nicolas Doualot <packages@slubman.info>
 
 pkgname=xine-lib
-pkgver=1.1.16.3
-pkgrel=4
-pkgdesc="A free video player for Unix"
+pkgver=1.1.18
+pkgrel=2
+pkgdesc="A multimedia playback engine"
 arch=('i686' 'x86_64')
-url="http://xinehq.de/"
+url="http://www.xine-project.org"
 license=('LGPL' 'GPL')
-depends=('libgl' 'libxvmc' 'esound' 'flac>=1.1.4' 'libvorbis' 'sdl' 'libmng' 'libtheora'
-         'libxcb' 'wavpack' 'ffmpeg>=0.5' 'heimdal>=1.2.1' 'faad2>=2.7')
+depends=('libgl' 'libxvmc' 'esound' 'flac' 'libvorbis' 'sdl' 'libmng' 'libtheora'
+         'libxcb' 'wavpack' 'ffmpeg' 'heimdal>=1.2.1' 'faad2' 'aalib')
 makedepends=('pkgconfig' 'libtool' 'imagemagick' 'smbclient' 'mesa' 'alsa-lib' 
              'vcdimager' 'pulseaudio')
+optdepends=('imagemagick: for using the imagemagick plugin' 'smbclient: for using the smb plugin' 'pulseaudio: for using the pulseaudio plugin')
 options=('!libtool')
 source=(http://downloads.sourceforge.net/sourceforge/xine/${pkgname}-${pkgver}.tar.bz2
+	http://downloads.sourceforge.net/sourceforge/xine/compat.c
         xine-lib-1.1.1-configure-no-mcpu-march.patch)
 
 build() {
-  cd ${srcdir}/${pkgname}-${pkgver}
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  cp "${srcdir}/compat.c" src/dxr3/compat.c || return 1
   patch -p0 < ../xine-lib-1.1.1-configure-no-mcpu-march.patch || return 1
 
   libtoolize --force --copy || return 1
@@ -33,8 +35,12 @@ build() {
     --disable-gnomevfs --with-pulseaudio --enable-aalib \
     --disable-modplug --with-external-ffmpeg || return 1
   make || return 1
-  make DESTDIR=${pkgdir} install || return 1
+  make DESTDIR="${pkgdir}" install || return 1
 }
-md5sums=('4f508abf088cf427a731f85634c8260d'
+
+md5sums=('2313c279bc99303cd12d4ee0ac826e20'
+         'c4537f3b0445e15a031e1f69fc57bc28'
          '9776df4eb54d2f1f68d8268adbc3b5c2')
-sha256sums=('d25a241efa55dc7d8f482336efa8bb7b9bb9d69b6df8a8a37f2660948fd67b52'            '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757')
+sha256sums=('4ba164c7a192b265a7c72bd623bd69b261bcf7716ecca90a08d67025dd16bfb7'
+            'a9ec7fcad69b99e7839f78d72b7f615d1f505ef112f1f8cd397e58f49116079c'
+            '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757')
