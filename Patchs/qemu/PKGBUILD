@@ -3,17 +3,16 @@
 
 pkgname=qemu
 pkgver=0.12.2
-pkgrel=3
+pkgrel=5
 _kvmver=0.12.2
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL' 'LGPL2')
 url="http://www.nongnu.org/qemu"
 depends=('sdl' 'alsa-lib' 'zlib' 'gnutls>=2.0.4')
-makedepends=('pulseaudio')
+makedepends=('pulseaudio' 'vde2')
 install=qemu.install
 source=(http://download.savannah.gnu.org/releases/${pkgname}/${pkgname}-${pkgver}.tar.gz
-        70-kqemu.rules \
         http://downloads.sourceforge.net/kvm/qemu-kvm-$_kvmver.tar.gz\
 	kvm-bios.diff vga-ram-size.diff qemu-kvm-ksm.diff)
 
@@ -32,6 +31,7 @@ build()
     ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa
 
     #patch -Np1 -i ../qemu-kvm-makefile-pulse.diff || return 1
+    #patch -Np1 -i ../kvm-udev.diff || return 1
     patch -Np1 -i ../qemu-kvm-ksm.diff || return 1
     make || return 1
 }
@@ -60,13 +60,11 @@ package() {
 }
 
 md5sums=('1d7c2d95acb6d0789de86508c608e26d'
-         'ec06591830b8fcf53913f05f3d66f7e5'
          '8e6f3666de038c2ee11cebc45ffa89e4'
          'ff2545eb46b45e9ff57b716c2eb99767'
          '14e5cc2c9b432498ca6e4e9d99e393b6'
          '08e0ec2be4b84048f5b601497057f28f')
 sha256sums=('accec2eec7dbd89e0b49474d1a0277ae3e7239a7700754b1cfb192f091766843'
-            'f68a919d5c99252759e5349cc573a44a0619e20e29d97b6a0f26d6861deed41c'
             '82a6291857f67f84da259ee30f6d46699b73e38964ef82fb6c8000386e4baf5a'
             'a04a15e64316796fd519cacc7784b8eb1996182dea7116f7faf9c79c846c86a2'
             'c9d557ad68a9a76cbb1e79729631c837256055f8ddc4c483f06f80ab27e1641e'

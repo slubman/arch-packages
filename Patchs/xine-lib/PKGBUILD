@@ -2,8 +2,8 @@
 # Contributor: Judd Vinet <jvinet@zeroflux.org>
 
 pkgname=xine-lib
-pkgver=1.1.18
-pkgrel=2
+pkgver=1.1.18.1
+pkgrel=3
 pkgdesc="A multimedia playback engine"
 arch=('i686' 'x86_64')
 url="http://www.xine-project.org"
@@ -38,9 +38,9 @@ build() {
   make DESTDIR="${pkgdir}" install || return 1
 }
 
-md5sums=('2313c279bc99303cd12d4ee0ac826e20'
+md5sums=('3efad551f2f8a9c5734855a6639694ef'
          'c4537f3b0445e15a031e1f69fc57bc28'
          '9776df4eb54d2f1f68d8268adbc3b5c2')
-sha256sums=('4ba164c7a192b265a7c72bd623bd69b261bcf7716ecca90a08d67025dd16bfb7'
+sha256sums=('6a9af8b928e7a65732fc256c6c092e4a74c554d19c977728f06baa1bda358311'
             'a9ec7fcad69b99e7839f78d72b7f615d1f505ef112f1f8cd397e58f49116079c'
             '9f37e23a5a83dff5264e647d62c76db7a74adb74ee4f0bc6666ca4e93fda8757')

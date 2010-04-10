@@ -4,7 +4,7 @@
 # Contributor: Nicolas Doualot <packages@slubman.info>
 
 pkgname=mpd
-pkgver=0.15.8
+pkgver=0.15.9
 pkgrel=2
 pkgdesc="Music daemon that plays MP3, FLAC, and Ogg Vorbis files"
 arch=('i686' 'x86_64')
@@ -48,7 +48,7 @@ build() {
   install -d ${pkgdir}/var/lib/mpd/playlists ${pkgdir}/var/log/mpd ${pkgdir}/var/run/mpd
 }
 
-md5sums=('824e1ce46c0f468865d9e5e403cdaf5d'
+md5sums=('88f7bc0b17eac81d03b24929d12b8aa1'
          'b1fd15de359db08e4b9ae4b199640f0e')
-sha256sums=('5de1bac0af52c6d2d2744a8c8c84bb1423de4eff2351790068173cf4f287aad7'
+sha256sums=('4a57a1a0dc71606d0db926b67d5b2c1ed2bfaf94baca7889d4b994a37bf367bb'
             '7f6a7dd7fc622eadcd9fa8d18ac0d99fb3484d9a47400d631caf6ac7ed59bc04')

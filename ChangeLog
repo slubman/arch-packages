@@ -1,10 +1,16 @@
-2010-23-02  Nicolas Doualot  <packages@slubman.info>
+2010-04-10  Nicolas Doualot  <packages@slubman.info>
+   * Patchs/mpd : sync with extra => 0.15.9
+   * Patchs/qemu : downgrade qemu to 0.12.2
+   * Patchs/phonon : enable pulseaudio support (to use it with gstreamer)
+   * Patchs/xine-lib : sync with extra => 1.1.18.1
+
+2010-02-23  Nicolas Doualot  <packages@slubman.info>
    * Patchs/xine-lib : sync with extra => 1.1.18
 
-2010-25-01  Nicolas Doualot  <packages@slubman.info>
+2010-01-25  Nicolas Doualot  <packages@slubman.info>
    * Patchs/mpd : sync with extra => 0.15.8
 
-2010-21-01  Nicolas Doualot  <packages@slubman.info>
+2010-01-21  Nicolas Doualot  <packages@slubman.info>
    * Patchs/qemu : upgrade to qemu 0.12.2 and qemu-kvm 0.12.2
 
 2010-01-01  Nicolas Doualot  <packages@slubman.info>
