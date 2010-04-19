@@ -5,7 +5,7 @@
 
 pkgname=mpd
 pkgver=0.15.9
-pkgrel=2
+pkgrel=5
 pkgdesc="Music daemon that plays MP3, FLAC, and Ogg Vorbis files"
 arch=('i686' 'x86_64')
 license=('GPL')
@@ -27,9 +27,13 @@ build() {
     --enable-ao \
     --enable-mikmod \
     --with-zeroconf \
-    --enable-pulse
+    --enable-pulse || return 1
 
   make || return 1
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-${pkgver}
   make DESTDIR=${pkgdir} install
 
   # set ours dirs in mpd.conf file

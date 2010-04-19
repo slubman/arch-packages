@@ -1,3 +1,7 @@
+2010-04-19  Nicolas Doualot  <packages@slubman.info>
+   * Patchs/mpd : recompiled against new libs,
+                  split the PKGBUILD into build ans package functions
+
 2010-04-10  Nicolas Doualot  <packages@slubman.info>
    * Patchs/mpd : sync with extra => 0.15.9
    * Patchs/qemu : downgrade qemu to 0.12.2
