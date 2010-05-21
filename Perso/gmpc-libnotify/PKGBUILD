@@ -3,13 +3,13 @@
 # Contributor: slubman <packages@slubman.info>
 
 pkgname=gmpc-libnotify
-pkgver=0.19.0
+pkgver=0.20.0
 pkgrel=1
 pkgdesc="A plugin for gmpc that displays notifications using libnotify"
 arch=(i686 x86_64)
 url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_LIBNOTIFY"
 license="GPL"
-depends=('libmpd>=0.19.0' 'libnotify')
+depends=('libmpd>=0.20.0' 'libnotify')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 conflicts=gmpc-libnotify-svn
@@ -21,5 +21,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('da1a96fbedb216976b1dae0bbd4bbcb2')
-sha256sums=('72ae8fc35d06aaf9f29e16eac9852196e21f721ded2b59a3d2c01b7c3403fb96')
+md5sums=('c728ac2deb5aa7e8ffad430690527ab4')
+sha256sums=('487deb607b6355413efdfdfcbb8949c3bc95003a5b49571285ab78f23fe65982')

@@ -3,13 +3,13 @@
 # Contributor: slubman <packages@slubman.info>
 
 pkgname=gmpc-avahi
-pkgver=0.19.0
+pkgver=0.20.0
 pkgrel=1
 pkgdesc="A plugin for mpc for discover mpd daemon within avahi enabled networks"
 arch=(i686 x86_64)
 url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_AVAHI"
 license="GPL"
-depends=('libmpd>=0.19.0' 'gtk2' 'avahi')
+depends=('libmpd>=0.20.0' 'gtk2' 'avahi')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 conflicts=gmpc-avahi-svn
@@ -21,5 +21,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('cc22a3604fbb8371cc98a086cf6e68bb')
-sha256sums=('6c39815ed1b74699173173d99d4fc19604f78e818d9f6e69f6ce2da6c55faaee')
+md5sums=('765cb2f41d81ec55dab789b18bdbed71')
+sha256sums=('768d3957e7192244557e64bdc91969cdc80edd594fe96defb6553a3d6eb5cc95')

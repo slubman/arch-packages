@@ -3,13 +3,13 @@
 # Contributor: slubman <packages@slubman.info>
 
 pkgname=gmpc-albumview
-pkgver=0.19.0
+pkgver=0.20.0
 pkgrel=1
 pkgdesc="This plugin fetches cover art, and album information from amazon"
 arch=(i686 x86_64)
 url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_COVERAMAZON"
 license="GPL"
-depends=('libmpd>=0.19.0' 'gtk2')
+depends=('libmpd>=0.9.0' 'gtk2')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 conflicts=gmpc-coveramazon-svn
@@ -21,5 +21,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('66f22d939856fe8f29b9d7c0e2828d4f')
-sha256sums=('5e3e895e6e47a21c11eb007110fa1c94ea8c332a014b354362bcfbd383490694')
+md5sums=('8e2b0f3e0084fcf4844bef43de217a9e')
+sha256sums=('7e5efa43338526c15beca0c13930f5e9358544f11ca03441b4a0cb1321a6b0e9')

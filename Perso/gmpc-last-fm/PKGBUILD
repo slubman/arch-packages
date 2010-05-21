@@ -3,13 +3,13 @@
 # Contributor: slubman <packages@slubman.info>
 
 pkgname=gmpc-last-fm
-pkgver=0.19.0
+pkgver=0.20.0
 pkgrel=1
 pkgdesc="The last.fm plugin can fetch artist images, from last.fm. This plugin doesn't scrobble your music, use a dedicated client like mpdscribble for this."
 arch=(i686 x86_64)
 url="http://gmpc.wikia.com/wiki/GMPC_PLUGIN_LASTFM"
 license="GPL"
-depends=('libmpd>=0.19.0' 'gtk2')
+depends=('libmpd>=0.20.0' 'gtk2')
 source=("http://download.sarine.nl/Programs/gmpc/${pkgver}/${pkgname}-${pkgver}.tar.gz")
 
 provide=(gmpc-lastfm)
@@ -23,5 +23,5 @@ build() {
   make DESTDIR="${pkgdir}" install
 }
 
-md5sums=('51d7bf7397c15a3272271d8d4c493b09')
-sha256sums=('15e824b9e7dbd58adeccf2e0249905d49c8a610358b3806573237139eb8cf9f6')
+md5sums=('aa5ae094e1bb78a11de9dd6e12f0bfb7')
+sha256sums=('626a49a5c0f26955901038019cb81d62915c9b37a8b5f4be17438d7fd0c67960')

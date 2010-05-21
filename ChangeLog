@@ -1,3 +1,7 @@
+2009-10-07  Nicolas Doualot  <packages@slubman.info>
+   * Perso/gmpc* : upgraded to gmpc 0.20.0
+   * Patchs/phonon : upgraded to 4.4.1
+
 2010-04-19  Nicolas Doualot  <packages@slubman.info>
    * Patchs/mpd : recompiled against new libs,
                   split the PKGBUILD into build ans package functions
