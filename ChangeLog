@@ -1,4 +1,7 @@
-2009-10-07  Nicolas Doualot  <packages@slubman.info>
+2010-05-29  Nicolas Doualot  <packages@slubman.info>
+   * Patchs/mpd : recompiled against new libraries
+
+2010-05-07  Nicolas Doualot  <packages@slubman.info>
    * Perso/gmpc* : upgraded to gmpc 0.20.0
    * Patchs/phonon : upgraded to 4.4.1
 
