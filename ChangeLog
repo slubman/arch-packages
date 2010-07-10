@@ -1,3 +1,6 @@
+2010-06-06  Nicolas Doualot  <packages@slubman.info>
+  * Patchs/mpd : upgraded to 0.15.10
+
 2010-05-29  Nicolas Doualot  <packages@slubman.info>
    * Perso/swift-git : added this new jabber client
    * Patchs/mpd : recompiled against new libraries
