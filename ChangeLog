@@ -1,3 +1,7 @@
+2010-07-29  Nicolas Doualot  <packages@slubman.info>
+  * Patchs/xine-lib : upgraded to 1.1.19
+  * Patchs/mpd : upgraded to 0.15.12
+
 2010-06-06  Nicolas Doualot  <packages@slubman.info>
   * Patchs/mpd : upgraded to 0.15.10
 
