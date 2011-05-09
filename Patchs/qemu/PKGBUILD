@@ -2,15 +2,15 @@
 # Contributor : Nicolas Doualot <packages@slubman.info>
 
 pkgname=qemu
-pkgver=0.12.2
-pkgrel=5
-_kvmver=0.12.2
+pkgver=0.14.0
+pkgrel=2
+_kvmver=0.14.0
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL' 'LGPL2')
 url="http://www.nongnu.org/qemu"
 depends=('sdl' 'alsa-lib' 'zlib' 'gnutls>=2.0.4')
-makedepends=('pulseaudio' 'vde2')
+makedepends=('libpulse' 'vde2')
 install=qemu.install
 source=(http://download.savannah.gnu.org/releases/${pkgname}/${pkgname}-${pkgver}.tar.gz
         http://downloads.sourceforge.net/kvm/qemu-kvm-$_kvmver.tar.gz\
@@ -22,50 +22,50 @@ build()
   unset CFLAGS
   ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa \
               --kerneldir="/usr/src/linux-$(uname -r)"
-  make || return 1
+  make
 
    # we add the kvm/qemu version
     cd ${srcdir}/qemu-kvm-$_kvmver
-    patch -Np1 -i ../kvm-bios.diff || return 1
-    patch -Np1 -i ../vga-ram-size.diff || return 1
+    patch -Np1 -i ../kvm-bios.diff
+    patch -Np1 -i ../vga-ram-size.diff
     ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa
 
-    #patch -Np1 -i ../qemu-kvm-makefile-pulse.diff || return 1
-    #patch -Np1 -i ../kvm-udev.diff || return 1
-    patch -Np1 -i ../qemu-kvm-ksm.diff || return 1
-    make || return 1
+    #patch -Np1 -i ../qemu-kvm-makefile-pulse.diff
+    #patch -Np1 -i ../kvm-udev.diff
+    #patch -Np1 -i ../qemu-kvm-ksm.diff
+    make
 }
 
 package() {
   cd ${srcdir}/${pkgname}-${pkgver}
-  make DESTDIR=${pkgdir} install || return 1
+  make DESTDIR=${pkgdir} install
 
    # install kvm-qemu as qemu-kvm
     cd ${srcdir}/qemu-kvm-$_kvmver
     install -m 755 ${srcdir}/qemu-kvm-$_kvmver/x86_64-softmmu/qemu-system-x86_64 \
-        ${pkgdir}/usr/bin/qemu-kvm || return 1
+        ${pkgdir}/usr/bin/qemu-kvm
     install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/kvm/scripts/65-kvm.rules \
-    	${pkgdir}/lib/udev/rules.d/65-kvm.rules || return 1
+    	${pkgdir}/lib/udev/rules.d/65-kvm.rules
    # install kvm bios files
     install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/bios.bin \
-        ${pkgdir}/usr/share/qemu/bios-kvm.bin || return 1
+        ${pkgdir}/usr/share/qemu/bios-kvm.bin
     install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vgabios.bin \
-        ${pkgdir}/usr/share/qemu/vgabios-kvm.bin || return 1
+        ${pkgdir}/usr/share/qemu/vgabios-kvm.bin
     install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vgabios-cirrus.bin \
-        ${pkgdir}/usr/share/qemu/vgabios-cirrus-kvm.bin || return 1
+        ${pkgdir}/usr/share/qemu/vgabios-cirrus-kvm.bin
     install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/optionrom/extboot.bin \
-        ${pkgdir}/usr/share/qemu/extboot-kvm.bin || return 1
+        ${pkgdir}/usr/share/qemu/extboot-kvm.bin
     install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vapic.bin \
-        ${pkgdir}/usr/share/qemu/vapic-kvm.bin || return 1
+        ${pkgdir}/usr/share/qemu/vapic-kvm.bin
 }
 
-md5sums=('1d7c2d95acb6d0789de86508c608e26d'
-         '8e6f3666de038c2ee11cebc45ffa89e4'
+md5sums=('f9d145d5c09de9f0984ffe9bd1229970'
+         '4ea6f412d85a826e0b0690f5c4c59f13'
          'ff2545eb46b45e9ff57b716c2eb99767'
          '14e5cc2c9b432498ca6e4e9d99e393b6'
          '08e0ec2be4b84048f5b601497057f28f')
-sha256sums=('accec2eec7dbd89e0b49474d1a0277ae3e7239a7700754b1cfb192f091766843'
-            '82a6291857f67f84da259ee30f6d46699b73e38964ef82fb6c8000386e4baf5a'
+sha256sums=('ba21e84d7853217830e167dae9999cdbff481189c6a0bb600ac7fb7201453108'
+            '2f62aff3655c7b904ccd088e80927b021126d91125e9d9515ee9dda8835c0635'
             'a04a15e64316796fd519cacc7784b8eb1996182dea7116f7faf9c79c846c86a2'
             'c9d557ad68a9a76cbb1e79729631c837256055f8ddc4c483f06f80ab27e1641e'
             '19f4517a5aea2220fc7f198f10d57bd85dd7b4a6902a3c5c9d1a82a7f00516cd')
