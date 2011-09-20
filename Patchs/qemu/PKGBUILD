@@ -2,33 +2,44 @@
 # Contributor : Nicolas Doualot <packages@slubman.info>
 
 pkgname=qemu
-pkgver=0.14.0
-pkgrel=2
-_kvmver=0.14.0
+pkgver=0.15.0
+pkgrel=0
+_kvmver=0.15.0
 pkgdesc="QEMU is a generic and open source processor emulator which achieves a good emulation speed by using dynamic translation."
 arch=(i686 x86_64)
 license=('GPL' 'LGPL2')
 url="http://www.nongnu.org/qemu"
 depends=('sdl' 'alsa-lib' 'zlib' 'gnutls>=2.0.4')
 makedepends=('libpulse' 'vde2')
+backup=('etc/qemu/target-x86_64.conf')
 install=qemu.install
-source=(http://download.savannah.gnu.org/releases/${pkgname}/${pkgname}-${pkgver}.tar.gz
-        http://downloads.sourceforge.net/kvm/qemu-kvm-$_kvmver.tar.gz\
+source=(http://wiki.qemu.org/download/${pkgname}-${pkgver}.tar.gz
+        http://downloads.sourceforge.net/kvm/qemu-kvm-${_kvmver}.tar.gz\
 	kvm-bios.diff vga-ram-size.diff qemu-kvm-ksm.diff)
+options=('!strip')
 
 build()
 {
   cd ${srcdir}/${pkgname}-${pkgver}
   unset CFLAGS
-  ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa \
-              --kerneldir="/usr/src/linux-$(uname -r)"
+  sed -i -e 's/lib64/lib/g' x86_64.ld
+  ./configure --prefix=/usr \
+	      --sysconfdir=/etc \
+	      --audio-drv-list=oss,alsa,sdl,pa \
+	      --python=/usr/bin/python2 \
+              --enable-docs
+  #            --kerneldir="/usr/src/linux-$(uname -r)"
   make
 
    # we add the kvm/qemu version
     cd ${srcdir}/qemu-kvm-$_kvmver
     patch -Np1 -i ../kvm-bios.diff
     patch -Np1 -i ../vga-ram-size.diff
-    ./configure --prefix=/usr --audio-drv-list=oss,alsa,sdl,pa
+    ./configure --prefix=/usr \
+	        --sysconfdir=/etc \
+	        --audio-drv-list=oss,alsa,sdl,pa \
+		--python=/usr/bin/python2 \
+		--enable-docs
 
     #patch -Np1 -i ../qemu-kvm-makefile-pulse.diff
     #patch -Np1 -i ../kvm-udev.diff
@@ -37,35 +48,44 @@ build()
 }
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}
-  make DESTDIR=${pkgdir} install
+	cd ${srcdir}/${pkgname}-${pkgver}
+	make DESTDIR=${pkgdir} install
 
-   # install kvm-qemu as qemu-kvm
-    cd ${srcdir}/qemu-kvm-$_kvmver
-    install -m 755 ${srcdir}/qemu-kvm-$_kvmver/x86_64-softmmu/qemu-system-x86_64 \
-        ${pkgdir}/usr/bin/qemu-kvm
-    install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/kvm/scripts/65-kvm.rules \
-    	${pkgdir}/lib/udev/rules.d/65-kvm.rules
-   # install kvm bios files
-    install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/bios.bin \
-        ${pkgdir}/usr/share/qemu/bios-kvm.bin
-    install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vgabios.bin \
-        ${pkgdir}/usr/share/qemu/vgabios-kvm.bin
-    install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vgabios-cirrus.bin \
-        ${pkgdir}/usr/share/qemu/vgabios-cirrus-kvm.bin
-    install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/optionrom/extboot.bin \
-        ${pkgdir}/usr/share/qemu/extboot-kvm.bin
-    install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vapic.bin \
-        ${pkgdir}/usr/share/qemu/vapic-kvm.bin
+	# install kvm-qemu as qemu-kvm
+	cd ${srcdir}/qemu-kvm-$_kvmver
+	install -m 755 ${srcdir}/qemu-kvm-$_kvmver/x86_64-softmmu/qemu-system-x86_64 \
+		${pkgdir}/usr/bin/qemu-kvm
+	install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/kvm/scripts/65-kvm.rules \
+		${pkgdir}/lib/udev/rules.d/65-kvm.rules
+	# install kvm bios files
+	install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/bios.bin \
+		${pkgdir}/usr/share/qemu/bios-kvm.bin
+	install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vgabios.bin \
+		${pkgdir}/usr/share/qemu/vgabios-kvm.bin
+	install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vgabios-cirrus.bin \
+		${pkgdir}/usr/share/qemu/vgabios-cirrus-kvm.bin
+	install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/optionrom/extboot.bin \
+		${pkgdir}/usr/share/qemu/extboot-kvm.bin
+	install -D -m644 ${srcdir}/qemu-kvm-$_kvmver/pc-bios/vapic.bin \
+		${pkgdir}/usr/share/qemu/vapic-kvm.bin
+	# strip scripts directory
+	find ${pkgdir}/usr/bin -type f -perm -u+w 2>/dev/null | while read binary ;
+	do
+		case "$(file -bi "$binary")" in 
+			*application/x-executable*) # Binaries
+				/usr/bin/strip $STRIP_BINARIES "$binary";;
+		esac
+	done
+
 }
 
-md5sums=('f9d145d5c09de9f0984ffe9bd1229970'
-         '4ea6f412d85a826e0b0690f5c4c59f13'
+md5sums=('dbc55b014bcd21b98e347f6a90f7fb6d'
+         'b45b0deebba4ce47dcaaab3807f6ed47'
          'ff2545eb46b45e9ff57b716c2eb99767'
          '14e5cc2c9b432498ca6e4e9d99e393b6'
          '08e0ec2be4b84048f5b601497057f28f')
-sha256sums=('ba21e84d7853217830e167dae9999cdbff481189c6a0bb600ac7fb7201453108'
-            '2f62aff3655c7b904ccd088e80927b021126d91125e9d9515ee9dda8835c0635'
+sha256sums=('0197e52dba07aeb6dfe0343b0c2ae08ed374d2cb0af3bb9ec73fed5baa0cb74d'
+            '828e771bffa540b0fbfe6fa5250adc92d5416720134d1f55a45c7926d83a4478'
             'a04a15e64316796fd519cacc7784b8eb1996182dea7116f7faf9c79c846c86a2'
             'c9d557ad68a9a76cbb1e79729631c837256055f8ddc4c483f06f80ab27e1641e'
             '19f4517a5aea2220fc7f198f10d57bd85dd7b4a6902a3c5c9d1a82a7f00516cd')
